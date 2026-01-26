@@ -1,0 +1,95 @@
+.jobs-page-wrapper {
+    background-color: #fdfaff;
+    min-height: 100vh;
+    perspective: 2000px; /* Global perspective for the page */
+}
+
+/* Sidebar Styling */
+.filter-sidebar-container {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    transform: rotateY(5deg); /* Slight tilt towards the content */
+    z-index: 10;
+}
+
+/* Main Scroll Area */
+.jobs-scroll-area {
+    flex: 1;
+    height: 85vh;
+    overflow-y: auto;
+    padding-right: 15px;
+    padding-bottom: 50px;
+    scrollbar-width: thin;
+    scrollbar-color: #7A1CAC transparent;
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.jobs-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.jobs-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.jobs-scroll-area::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #7A1CAC, #AD49E1);
+    border-radius: 10px;
+}
+
+/* Grid Layout */
+.jobs-grid-3d {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 10px;
+    transform-style: preserve-3d;
+}
+
+.job-card-motion-wrapper {
+    perspective: 1000px;
+}
+
+/* Empty State Styling */
+.no-job-3d {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background: rgba(235, 211, 248, 0.2);
+    border-radius: 30px;
+    border: 2px dashed #AD49E1;
+    transform: rotateX(10deg);
+}
+
+.no-job-text {
+    color: #2E073F;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .filter-sidebar-container {
+        width: 100%;
+        position: relative;
+        top: 0;
+        transform: none;
+        margin-bottom: 20px;
+    }
+
+    .jobs-scroll-area {
+        height: auto;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+
+    .jobs-grid-3d {
+        grid-template-columns: 1fr;
+    }
+}

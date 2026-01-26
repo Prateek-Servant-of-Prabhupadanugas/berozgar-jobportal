@@ -3,6 +3,7 @@ import { RadioGroup, RadioGroupItem } from './ui/radio-group'
 import { Label } from './ui/label'
 import { useDispatch } from 'react-redux'
 import { setSearchedQuery } from '@/redux/jobSlice'
+import './FilterCard.css'
 
 const fitlerData = [
     {
@@ -22,36 +23,53 @@ const fitlerData = [
 const FilterCard = () => {
     const [selectedValue, setSelectedValue] = useState('');
     const dispatch = useDispatch();
+
     const changeHandler = (value) => {
         setSelectedValue(value);
     }
-    useEffect(()=>{
+
+    useEffect(() => {
         dispatch(setSearchedQuery(selectedValue));
-    },[selectedValue]);
+    }, [selectedValue]);
+
     return (
-        <div className='w-full bg-white p-3 rounded-md'>
-            <h1 className='font-bold text-lg'>Filter Jobs</h1>
-            <hr className='mt-3' />
-            <RadioGroup value={selectedValue} onValueChange={changeHandler}>
-                {
-                    fitlerData.map((data, index) => (
-                        <div>
-                            <h1 className='font-bold text-lg'>{data.fitlerType}</h1>
-                            {
-                                data.array.map((item, idx) => {
-                                    const itemId = `id${index}-${idx}`
-                                    return (
-                                        <div className='flex items-center space-x-2 my-2'>
-                                            <RadioGroupItem value={item} id={itemId} />
-                                            <Label htmlFor={itemId}>{item}</Label>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    ))
-                }
-            </RadioGroup>
+        <div className='filter-card-3d-wrapper'>
+            <div className='filter-card-content'>
+                <h1 className='filter-main-title'>Filter Jobs</h1>
+                <div className='filter-divider'></div>
+                
+                <RadioGroup value={selectedValue} onValueChange={changeHandler}>
+                    {
+                        fitlerData.map((data, index) => (
+                            <div key={index} className="filter-group-section">
+                                <h2 className='filter-group-title'>{data.fitlerType}</h2>
+                                {
+                                    data.array.map((item, idx) => {
+                                        const itemId = `id${index}-${idx}`
+                                        return (
+                                            <div key={itemId} className='filter-option-item'>
+                                                <div className="radio-3d-container">
+                                                    <RadioGroupItem 
+                                                        value={item} 
+                                                        id={itemId} 
+                                                        className="custom-radio-3d" 
+                                                    />
+                                                </div>
+                                                <Label 
+                                                    htmlFor={itemId} 
+                                                    className="filter-label-3d"
+                                                >
+                                                    {item}
+                                                </Label>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        ))
+                    }
+                </RadioGroup>
+            </div>
         </div>
     )
 }

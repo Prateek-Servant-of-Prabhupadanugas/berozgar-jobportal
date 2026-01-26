@@ -1,0 +1,97 @@
+.footer-container {
+    position: relative;
+    padding: 6rem 1.5rem 2rem;
+    background: #f8fafc; /* Light background to make the white glass pop */
+    perspective: 1500px;
+    overflow: hidden;
+}
+
+/* 3D Glass Card Styling */
+.footer-glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transform: rotateX(5deg); /* Permanent slight 3D tilt */
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.footer-glass-card:hover {
+    transform: rotateX(0deg) translateY(-10px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+}
+
+/* 3D Logo in Footer */
+.logo-3d-footer {
+    text-shadow: 2px 2px 0px #eee, 4px 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+/* 3D Social Icons */
+.social-icon-3d {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: #6A38C2;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #e2e8f0; /* Bottom depth */
+    transition: all 0.2s ease;
+}
+
+.social-icon-3d:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: #6A38C2;
+    color: white;
+    box-shadow: 0 8px 15px rgba(106, 56, 194, 0.2);
+}
+
+.social-icon-3d:active {
+    transform: translateY(2px);
+    box-shadow: 0 0px 0px #e2e8f0;
+}
+
+/* Links with 3D "Slide In" effect */
+.footer-link {
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: fit-content;
+}
+
+.footer-link:hover {
+    color: #3b82f6;
+    transform: translateX(8px) translateZ(10px);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Contact Item Depth */
+.footer-contact-item {
+    transition: transform 0.3s ease;
+}
+
+.footer-contact-item:hover {
+    transform: translateZ(20px);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 4rem 1rem 1rem;
+    }
+    .footer-glass-card {
+        border-radius: 24px;
+        transform: none; /* Remove tilt on small screens for better UX */
+    }
+    .footer-glass-card:hover {
+        transform: translateY(-5px);
+    }
+}

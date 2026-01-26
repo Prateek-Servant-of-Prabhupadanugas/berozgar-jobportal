@@ -1,0 +1,131 @@
+/* --- High-Level Container --- */
+.navbar-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.75rem 1.25rem;
+    perspective: 1500px;
+}
+
+/* --- The Floating Glass Bar --- */
+.navbar-glass-wrapper {
+    position: relative;
+    z-index: 1010; /* Above the mobile sidebar */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 22px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.06),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- The 3D Sliding Drawer (Under the Navbar) --- */
+.mobile-sidebar-3d {
+    position: absolute;
+    top: 25px; 
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 990; /* BELOW the navbar-glass-wrapper */
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 28px 28px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: none;
+    
+    /* Animation: Slide out from behind bar */
+    transform: translateY(-110%) rotateX(-25deg);
+    transform-origin: top center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-sidebar-3d.open {
+    transform: translateY(40px) rotateX(0deg); 
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- 3D Elements & Hover Effects --- */
+.logo-3d h1 {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+.logo-3d:hover h1 {
+    transform: translateZ(25px) scale(1.05);
+}
+
+.nav-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+    transform: translateY(-2px);
+    color: #6A38C2;
+}
+
+/* The "Push" 3D Button */
+.btn-3d-purple {
+    background: linear-gradient(145deg, #6A38C2, #5b30a6) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 0px #42228a !important;
+    transition: all 0.1s ease !important;
+    transform: translateY(-2px);
+}
+
+.btn-3d-purple:active {
+    transform: translateY(2px);
+    box-shadow: 0 0px 0px #42228a !important;
+}
+
+/* Popover & Overlays */
+.popover-3d-glass {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 20px !important;
+    border: 1px solid white !important;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1) !important;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8) translateY(-10px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    z-index: 900;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Avatar Depth */
+.avatar-3d-ring {
+    padding: 2px;
+    background: linear-gradient(45deg, #6A38C2, #F83002);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.avatar-3d-ring:hover {
+    transform: scale(1.1) rotate(5deg);
+}

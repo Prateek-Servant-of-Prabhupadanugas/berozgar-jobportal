@@ -1,0 +1,94 @@
+/* --- Perspective Container --- */
+.carousel-3d-container {
+    perspective: 1200px;
+    overflow: visible !important;
+}
+
+.carousel-perspective {
+    transform-style: preserve-3d;
+}
+
+/* --- The Category Card & Button --- */
+.category-card-3d {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.category-btn-3d {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid #AD49E1 !important; /* Action Purple */
+    color: #2E073F !important; /* Dark Purple Text */
+    border-radius: 50px !important;
+    padding: 1.5rem 2rem !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    position: relative;
+    z-index: 2;
+    transform: translateZ(20px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 10px 20px rgba(46, 7, 63, 0.1);
+}
+
+.category-card-3d:hover .category-btn-3d {
+    transform: translateZ(50px) scale(1.1);
+    background: #2E073F !important;
+    color: #EBD3F8 !important;
+    border-color: #AD49E1 !important;
+    box-shadow: 0 20px 40px rgba(46, 7, 63, 0.3);
+}
+
+/* --- Floating Shadow Effect --- */
+.card-shadow-3d {
+    position: absolute;
+    bottom: -15px;
+    width: 60%;
+    height: 10px;
+    background: rgba(46, 7, 63, 0.2);
+    filter: blur(8px);
+    border-radius: 50%;
+    transform: rotateX(90deg) translateZ(-20px);
+    transition: all 0.3s ease;
+}
+
+.category-card-3d:hover .card-shadow-3d {
+    width: 80%;
+    background: rgba(46, 7, 63, 0.4);
+    filter: blur(12px);
+}
+
+/* --- Navigation Buttons (Arrows) --- */
+.nav-btn-3d {
+    background: #7A1CAC !important; /* Secondary Purple */
+    color: white !important;
+    border: none !important;
+    width: 50px !important;
+    height: 50px !important;
+    box-shadow: 0 6px 0px #2E073F !important; /* Dark bottom edge */
+    transition: all 0.1s ease !important;
+}
+
+.nav-btn-3d:hover {
+    background: #AD49E1 !important;
+    transform: translateY(-2px);
+}
+
+.nav-btn-3d:active {
+    transform: translateY(4px) !important;
+    box-shadow: 0 0px 0px #2E073F !important;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .category-btn-3d {
+        padding: 1.25rem 1.5rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .carousel-3d-container {
+        padding: 0 40px; /* Space for arrows on mobile */
+    }
+}

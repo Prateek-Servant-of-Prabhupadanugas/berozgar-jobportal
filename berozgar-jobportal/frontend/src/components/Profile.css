@@ -1,0 +1,134 @@
+.profile-page-root {
+    background-color: #fdfaff;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+/* --- Main Profile Card --- */
+.profile-container {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid rgba(122, 28, 172, 0.1);
+    box-shadow: 0 20px 40px rgba(46, 7, 63, 0.05);
+    position: relative;
+    transform: translateZ(0);
+}
+
+.avatar-3d-wrapper {
+    transition: transform 0.4s ease;
+}
+
+.avatar-3d-wrapper:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.profile-name-3d {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #2E073F;
+}
+
+.profile-bio-3d {
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* --- Interactive Contact Pills --- */
+.contact-info-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f5ff;
+    padding: 8px 16px;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    color: #475569;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.contact-pill:hover {
+    border-color: #AD49E1;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(122, 28, 172, 0.1);
+}
+
+/* --- Skills & Badges --- */
+.section-subtitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2E073F;
+}
+
+.skill-badge-3d {
+    background: #7A1CAC !important;
+    color: white !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    transition: transform 0.2s ease !important;
+}
+
+.skill-badge-3d:hover {
+    transform: scale(1.1) translateZ(10px);
+    background: #AD49E1 !important;
+}
+
+/* --- Resume Link --- */
+.resume-link-3d {
+    display: inline-block;
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.resume-link-3d:hover {
+    background: rgba(59, 130, 246, 0.1);
+    text-decoration: underline;
+}
+
+/* --- Edit Button 3D Push --- */
+.edit-btn-3d {
+    border-radius: 12px !important;
+    border: 2px solid #EBD3F8 !important;
+    transition: all 0.1s ease !important;
+}
+
+.edit-btn-3d:active {
+    transform: translateY(2px);
+}
+
+/* --- Applied Jobs Table 3D --- */
+.applied-jobs-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2E073F;
+    margin-bottom: 20px;
+}
+
+.table-container-3d {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #f1f5f9;
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 640px) {
+    .profile-container {
+        padding: 1.5rem;
+        margin: 10px;
+    }
+    .profile-name-3d {
+        font-size: 1.4rem;
+    }
+}

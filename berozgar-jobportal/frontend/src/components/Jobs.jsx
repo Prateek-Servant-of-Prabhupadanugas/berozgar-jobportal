@@ -3,9 +3,8 @@ import Navbar from './shared/Navbar'
 import FilterCard from './FilterCard'
 import Job from './Job';
 import { useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
-
-// const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
+import { motion, AnimatePresence } from 'framer-motion';
+import './Jobs.css';
 
 const Jobs = () => {
     const { allJobs, searchedQuery } = useSelector(store => store.job);
@@ -25,39 +24,49 @@ const Jobs = () => {
     }, [allJobs, searchedQuery]);
 
     return (
-        <div>
+        <div className="jobs-page-wrapper">
             <Navbar />
-            <div className='max-w-7xl mx-auto mt-5'>
-                <div className='flex gap-5'>
-                    <div className='w-20%'>
+            <div className='max-w-7xl mx-auto mt-8 px-4'>
+                <div className='flex flex-col md:flex-row gap-8'>
+                    {/* Left Sidebar: Filter Section */}
+                    <div className='filter-sidebar-container'>
                         <FilterCard />
                     </div>
+
+                    {/* Right Section: Job Listings */}
                     {
-                        filterJobs.length <= 0 ? <span>Job not found</span> : (
-                            <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
-                                <div className='grid grid-cols-3 gap-4'>
-                                    {
-                                        filterJobs.map((job) => (
-                                            <motion.div
-                                                initial={{ opacity: 0, x: 100 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                exit={{ opacity: 0, x: -100 }}
-                                                transition={{ duration: 0.3 }}
-                                                key={job?._id}>
-                                                <Job job={job} />
-                                            </motion.div>
-                                        ))
-                                    }
+                        filterJobs.length <= 0 ? (
+                            <div className="no-job-3d">
+                                <span className="no-job-text">No Jobs Found matching your search.</span>
+                            </div>
+                        ) : (
+                            <div className='jobs-scroll-area'>
+                                <div className='jobs-grid-3d'>
+                                    <AnimatePresence>
+                                        {
+                                            filterJobs.map((job) => (
+                                                <motion.div
+                                                    layout
+                                                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                                    exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
+                                                    transition={{ duration: 0.4, ease: "circOut" }}
+                                                    key={job?._id}
+                                                    className="job-card-motion-wrapper"
+                                                >
+                                                    <Job job={job} />
+                                                </motion.div>
+                                            ))
+                                        }
+                                    </AnimatePresence>
                                 </div>
                             </div>
                         )
                     }
                 </div>
             </div>
-
-
         </div>
     )
 }
 
-export default Jobs
+export default Jobs;

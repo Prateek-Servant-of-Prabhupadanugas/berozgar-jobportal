@@ -1,0 +1,88 @@
+.latest-job-card-3d {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(122, 28, 172, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 20px rgba(46, 7, 63, 0.04);
+    transform-style: preserve-3d;
+}
+
+/* Hover Effect: Lifting and Glowing */
+.latest-job-card-3d:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(122, 28, 172, 0.15);
+    border-color: #AD49E1;
+}
+
+.card-content-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.company-title-3d {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2E073F; /* Your Dark Purple */
+}
+
+.location-subtext {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.job-role-title-3d {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #7A1CAC; /* Secondary Purple */
+    letter-spacing: -0.01em;
+}
+
+.job-desc-snippet {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Truncates long text beautifully */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Badge Styling with 3D Pop */
+.latest-badge {
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    border-radius: 6px !important;
+    border: 1px solid transparent !important;
+}
+
+.pos-tag { color: #3b82f6 !important; background: rgba(59, 130, 246, 0.08) !important; }
+.type-tag { color: #F83002 !important; background: rgba(248, 48, 2, 0.08) !important; }
+.salary-tag { color: #7A1CAC !important; background: rgba(122, 28, 172, 0.08) !important; }
+
+/* Subtle Purple Gradient Glow on Hover */
+.card-glow-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(173, 73, 225, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.latest-job-card-3d:hover .card-glow-accent {
+    opacity: 1;
+}
+
+/* Responsive Handling */
+@media (max-width: 640px) {
+    .latest-job-card-3d:hover {
+        transform: translateY(-5px); /* Reduced movement for mobile */
+    }
+}

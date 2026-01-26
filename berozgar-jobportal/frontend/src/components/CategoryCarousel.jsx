@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setSearchedQuery } from '@/redux/jobSlice';
+import './CategoryCarousel.css';
 
 const category = [
     "Frontend Developer",
@@ -16,28 +17,39 @@ const category = [
 const CategoryCarousel = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
     const searchJobHandler = (query) => {
         dispatch(setSearchedQuery(query));
         navigate("/browse");
     }
 
     return (
-        <div>
-            <Carousel className="w-full max-w-xl mx-auto my-20">
-                <CarouselContent>
+        <div className="carousel-3d-container">
+            <Carousel className="w-full max-w-xl mx-auto my-20 carousel-perspective">
+                <CarouselContent className="-ml-2 md:-ml-4">
                     {
                         category.map((cat, index) => (
-                            <CarouselItem className="md:basis-1/2 lg-basis-1/3">
-                                <Button onClick={()=>searchJobHandler(cat)} variant="outline" className="rounded-full">{cat}</Button>
+                            <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3 py-10">
+                                <div className="category-card-3d">
+                                    <Button 
+                                        onClick={() => searchJobHandler(cat)} 
+                                        variant="outline" 
+                                        className="category-btn-3d"
+                                    >
+                                        <span className="btn-content">{cat}</span>
+                                    </Button>
+                                    <div className="card-shadow-3d"></div>
+                                </div>
                             </CarouselItem>
                         ))
                     }
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                {/* 3D Styled Navigation Arrows */}
+                <CarouselPrevious className="nav-btn-3d left-btn" />
+                <CarouselNext className="nav-btn-3d right-btn" />
             </Carousel>
         </div>
     )
 }
 
-export default CategoryCarousel
+export default CategoryCarousel;

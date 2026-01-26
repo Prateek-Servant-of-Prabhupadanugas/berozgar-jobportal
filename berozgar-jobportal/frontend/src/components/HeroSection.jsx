@@ -4,6 +4,7 @@ import { Search } from 'lucide-react'
 import { useDispatch } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice';
 import { useNavigate } from 'react-router-dom';
+import './HeroSection.css';
 
 const HeroSection = () => {
     const [query, setQuery] = useState("");
@@ -16,22 +17,45 @@ const HeroSection = () => {
     }
 
     return (
-        <div className='text-center'>
-            <div className='flex flex-col gap-5 my-10'>
-                <span className=' mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#F83002] font-medium'>No. 1 Job Hunt Website</span>
-                <h1 className='text-5xl font-bold'>Search, Apply & <br /> Get Your <span className='text-[#6A38C2]'>Dream Jobs</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid aspernatur temporibus nihil tempora dolor!</p>
-                <div className='flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto'>
-                    <input
-                        type="text"
-                        placeholder='Find your dream jobs'
-                        onChange={(e) => setQuery(e.target.value)}
-                        className='outline-none border-none w-full'
+        <div className='hero-root-container'>
+            {/* 3D Background Decorative Elements */}
+            <div className="purple-orb orb-1"></div>
+            <div className="purple-orb orb-2"></div>
 
-                    />
-                    <Button onClick={searchJobHandler} className="rounded-r-full bg-[#6A38C2]">
-                        <Search className='h-5 w-5' />
-                    </Button>
+            <div className='hero-content-wrapper text-center'>
+                <div className='flex flex-col gap-6 my-10'>
+                    <div className='badge-3d-container mx-auto'>
+                        <span className='badge-3d-text px-6 py-2 rounded-full font-bold uppercase tracking-wider'>
+                            No. 1 Job Hunt Website
+                        </span>
+                    </div>
+
+                    <h1 className='hero-main-title text-5xl md:text-7xl font-extrabold'>
+                        Search, Apply & <br /> 
+                        Get Your <span className='text-gradient-purple'>Dream Jobs</span>
+                    </h1>
+
+                    <p className='hero-subtitle mx-auto max-w-2xl'>
+                        Discover thousands of opportunities across the globe with our 3D-powered recruitment platform. Your next career move starts here.
+                    </p>
+
+                    {/* 3D Search Bar */}
+                    <div className='search-3d-wrapper mx-auto'>
+                        <div className='search-glass-inner flex items-center gap-4'>
+                            <input
+                                type="text"
+                                placeholder='Find your dream jobs...'
+                                onChange={(e) => setQuery(e.target.value)}
+                                className='search-input-3d'
+                            />
+                            <Button 
+                                onClick={searchJobHandler} 
+                                className="search-btn-3d group"
+                            >
+                                <Search className='h-5 w-5 group-hover:scale-110 transition-transform' />
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

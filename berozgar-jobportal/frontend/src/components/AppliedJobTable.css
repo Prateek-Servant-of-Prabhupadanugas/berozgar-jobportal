@@ -1,0 +1,100 @@
+/* --- Container & Perspective --- */
+.applied-jobs-container {
+    perspective: 1200px;
+    padding: 2rem;
+}
+
+/* --- The Main 3D Card (Dark Purple Theme) --- */
+.table-3d-wrapper {
+    background: linear-gradient(135deg, rgba(46, 7, 63, 0.05) 0%, rgba(122, 28, 172, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(122, 28, 172, 0.2);
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(46, 7, 63, 0.2);
+    transform: rotateX(1deg);
+    transition: all 0.5s ease;
+}
+
+/* --- Header Section --- */
+.header-row-3d {
+    background: #2E073F !important; /* Your Primary Dark Purple */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(46, 7, 63, 0.3);
+}
+
+.header-row-3d th {
+    border: none !important;
+    padding: 1rem !important;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+}
+
+/* --- 3D Floating Rows --- */
+.row-3d {
+    background: white !important;
+    margin-bottom: 15px;
+    border-radius: 15px !important;
+    border: 1px solid #EBD3F8 !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 4px 0px #AD49E1; /* Purple depth line */
+}
+
+.row-3d:hover {
+    transform: translateY(-8px) scale(1.02) rotateX(-2deg);
+    box-shadow: 0 20px 30px rgba(122, 28, 172, 0.15);
+    background: #fdfaff !important;
+    z-index: 50;
+}
+
+/* --- Company Tag --- */
+.company-tag-purple {
+    background: #EBD3F8;
+    color: #2E073F;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: 1px solid rgba(122, 28, 172, 0.1);
+}
+
+/* --- 3D Status Badges --- */
+.status-badge-3d {
+    padding: 6px 14px !important;
+    border-radius: 10px !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 800 !important;
+}
+
+.status-accepted { background: #22c55e !important; box-shadow: 0 4px 0px #15803d !important; }
+.status-pending { background: #7A1CAC !important; box-shadow: 0 4px 0px #4E0E6E !important; } /* Purplish Pending */
+.status-rejected { background: #ef4444 !important; box-shadow: 0 4px 0px #b91c1c !important; }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .table-3d-wrapper {
+        transform: none;
+        padding: 1rem;
+    }
+    
+    /* Convert table to 3D purple cards */
+    .custom-3d-table thead { display: none; }
+    .row-3d {
+        display: block;
+        padding: 1.5rem;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .row-3d td {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0 !important;
+        text-align: center !important;
+    }
+    
+    .job-title-cell { font-size: 1.25rem; margin-bottom: 5px; }
+}

@@ -1,0 +1,89 @@
+/* --- Dialog Container --- */
+.dialog-3d-content {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(122, 28, 172, 0.2) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 25px 50px rgba(46, 7, 63, 0.2) !important;
+    perspective: 1000px;
+}
+
+.dialog-title-3d {
+    color: #2E073F;
+    font-weight: 800 !important;
+    font-size: 1.5rem !important;
+    text-align: center;
+}
+
+/* --- Input Grouping --- */
+.input-group-3d {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateZ(10px);
+}
+
+.label-3d {
+    font-weight: 700 !important;
+    color: #7A1CAC !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.input-3d {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.03) !important;
+    transition: all 0.3s ease !important;
+}
+
+.input-3d:focus {
+    border-color: #AD49E1 !important;
+    box-shadow: 0 0 0 3px rgba(173, 73, 225, 0.1) !important;
+    transform: translateY(-2px) translateZ(5px);
+}
+
+.file-input-3d {
+    cursor: pointer;
+    border: 2px dashed #EBD3F8 !important;
+    background: #fdfaff !important;
+}
+
+/* --- 3D Update Button --- */
+.update-btn-3d {
+    background: #7A1CAC !important;
+    color: white !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 6px 0px #2E073F !important;
+    transition: all 0.1s ease !important;
+    margin-top: 10px;
+}
+
+.update-btn-3d:hover:not(:disabled) {
+    background: #AD49E1 !important;
+    transform: translateY(-2px);
+}
+
+.update-btn-3d:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0px #2E073F !important;
+}
+
+.loading-state {
+    opacity: 0.8;
+    background: #2E073F !important;
+    box-shadow: none !important;
+    transform: scale(0.98);
+}
+
+/* --- Mobile Fix --- */
+@media (max-width: 640px) {
+    .dialog-3d-content {
+        width: 95% !important;
+        margin: auto;
+    }
+}
