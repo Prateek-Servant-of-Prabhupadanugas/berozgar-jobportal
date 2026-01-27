@@ -1,0 +1,52 @@
+.service-page-wrapper { background: #fdfaff; min-height: 100vh; }
+
+.hero-3d-section {
+    background: linear-gradient(135deg, #2E073F 0%, var(--theme-color) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    color: white;
+}
+
+.hero-title-3d {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    animation: floating 3s ease-in-out infinite;
+}
+
+.content-card-3d {
+    background: white;
+    padding: 3rem;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(46, 7, 63, 0.1);
+    border: 1px solid rgba(173, 73, 225, 0.1);
+}
+
+.program-item-3d {
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: #fcfaff;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.program-item-3d:hover {
+    transform: translateX(10px) translateZ(20px);
+    border-color: #AD49E1;
+    box-shadow: -5px 5px 15px rgba(122, 28, 172, 0.1);
+}
+
+.apply-now-btn {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1rem;
+    background: #7A1CAC;
+    color: white;
+    font-weight: 800;
+    border-radius: 15px;
+    box-shadow: 0 6px 0 #2E073F;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

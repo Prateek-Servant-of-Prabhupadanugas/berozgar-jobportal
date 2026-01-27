@@ -1,0 +1,27 @@
+.legal-bg { background: #f3e8ff; min-height: 100vh; padding-bottom: 50px; }
+
+.legal-container {
+    max-width: 800px;
+    margin: 50px auto;
+    perspective: 1000px;
+}
+
+.legal-doc-3d {
+    background: white;
+    padding: 4rem;
+    border-radius: 10px;
+    transform: rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1), 
+                0 40px 80px rgba(122, 28, 172, 0.1);
+    border-top: 8px solid #7A1CAC;
+}
+
+.legal-title { font-size: 2.5rem; font-weight: 900; color: #2E073F; }
+
+.legal-body h3 { 
+    color: #7A1CAC; 
+    font-weight: 800; 
+    margin-top: 2rem;
+    border-left: 4px solid #AD49E1;
+    padding-left: 10px;
+}
