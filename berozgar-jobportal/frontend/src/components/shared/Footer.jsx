@@ -11,11 +11,13 @@ const Footer = () => {
                     
                     {/* Brand Section */}
                     <div className="footer-section brand-column">
-                        <h2 className="text-3xl font-bold mb-4 logo-3d-footer">
-                            Job <span className="text-blue-500">Portal</span>
-                        </h2>
+                        
+                        <h1 className='text-3xl font-bold mb-4 logo-3d-footer'>
+                            Be<span className='text-[#860af3]'>Rozgaars</span>
+                        </h1>
+                        
                         <p className="text-gray-500 leading-relaxed mb-6">
-                            Connecting talent with opportunity through a seamless, 3D-driven recruitment experience.
+                            Connecting talent with opportunity through a seamless recruitment experience.
                         </p>
                         <div className="flex gap-4">
                             <div className="social-icon-3d"><Facebook size={20} /></div>
@@ -53,15 +55,15 @@ const Footer = () => {
                         <div className="space-y-4">
                             <div className="flex items-center gap-3 text-gray-500 footer-contact-item">
                                 <MapPin size={18} className="text-blue-500" />
-                                <span>123 Tech Avenue, Silicon Valley</span>
+                                <span>Vadodara</span>
                             </div>
                             <div className="flex items-center gap-3 text-gray-500 footer-contact-item">
                                 <Phone size={18} className="text-blue-500" />
-                                <span>+1 (555) 000-1234</span>
+                                <span>+91 (807) 384-1503</span>
                             </div>
                             <div className="flex items-center gap-3 text-gray-500 footer-contact-item">
                                 <Mail size={18} className="text-blue-500" />
-                                <span>support@jobportal.com</span>
+                                <span>support@berozgaars.com</span>
                             </div>
                         </div>
                     </div>
@@ -69,7 +71,7 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="footer-bottom-bar px-10 py-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-gray-400">© 2026 Job Portal. All rights reserved.</p>
+                    <p className="text-sm text-gray-400">© 2026 Berozgaars. All rights reserved.</p>
                     <div className="flex gap-8 text-sm text-gray-400">
                         <span className="hover:text-blue-500 cursor-pointer transition-colors">Privacy Policy</span>
                         <span className="hover:text-blue-500 cursor-pointer transition-colors">Cookies</span>
