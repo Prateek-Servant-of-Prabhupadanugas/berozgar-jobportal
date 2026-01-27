@@ -60,7 +60,7 @@ const Navbar = () => {
                     <div className="logo-3d z-50">
                         <Link to="/">
                             <h1 className='text-2xl font-bold tracking-tighter'>
-                                Job<span className='text-[#F83002]'>Portal</span>
+                                Be<span className='text-[#2e073f1a]'>Rozgaars</span>
                             </h1>
                         </Link>
                     </div>
