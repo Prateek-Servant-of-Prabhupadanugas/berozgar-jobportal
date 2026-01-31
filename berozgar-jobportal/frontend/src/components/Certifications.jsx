@@ -32,7 +32,7 @@ const Certifications = () => {
             id: "services",
             title: "Premium Candidate Services",
             icon: <BadgeCheck size={32} />,
-            items: ["Background Verification", "Scam Job Alert", "NFC/QR Smart Cards", "Resume Building", "End-to-End Mentorship"],
+            items: ["Background Verification", "Scam Job Alert", "Resume Building", "End-to-End Mentorship"],
             path: "/academy/services"
         }
     ];
@@ -72,24 +72,7 @@ const Certifications = () => {
             </div>
 
             {/* Sticky Specialty Highlight */}
-            <div className="specialty-banner-3d">
-                <div className="flex items-center gap-4">
-                    <CreditCard size={40} className="text-[#AD49E1]" />
-                    <div className="text-left">
-                        <h4 className="font-bold text-white">NFC / QR Smart Cards</h4>
-                        <p className="text-xs text-purple-200">Instant document access for modern candidates.</p>
-                    </div>
-                </div>
-                <div className="flex gap-4">
-                    <span className="posh-badge">POSH Certified</span>
-                    <button 
-                        onClick={() => navigate('/academy/services')} 
-                        className="bg-white text-[#7A1CAC] px-4 py-2 rounded-lg font-bold text-sm hover:scale-105 transition-transform"
-                    >
-                        Get Yours
-                    </button>
-                </div>
-            </div>
+            
         </div>
     );
 };

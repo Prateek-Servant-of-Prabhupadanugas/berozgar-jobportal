@@ -57,10 +57,7 @@ const Footer = () => {
                                 <MapPin size={18} className="text-blue-500" />
                                 <span>Vadodara</span>
                             </div>
-                            <div className="flex items-center gap-3 text-gray-500 footer-contact-item">
-                                <Phone size={18} className="text-blue-500" />
-                                <span>+91 (807) 384-1503</span>
-                            </div>
+                            
                             <div className="flex items-center gap-3 text-gray-500 footer-contact-item">
                                 <Mail size={18} className="text-blue-500" />
                                 <span>support@berozgaars.com</span>
