@@ -10,7 +10,7 @@ import { USER_API_END_POINT } from '@/utils/constant'
 import { toast } from 'sonner'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading, setUser } from '@/redux/authSlice'
-import { Loader2 } from 'lucide-react'
+import { Loader2, LockKeyhole, ShieldCheck } from 'lucide-react'
 import './Login.css'
 
 const Login = () => {
@@ -32,9 +32,7 @@ const Login = () => {
         try {
             dispatch(setLoading(true));
             const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json" },
                 withCredentials: true,
             });
             if (res.data.success) {
@@ -43,7 +41,6 @@ const Login = () => {
                 toast.success(res.data.message);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.response.data.message);
         } finally {
             dispatch(setLoading(false));
@@ -51,49 +48,50 @@ const Login = () => {
     }
 
     useEffect(() => {
-        if (user) {
-            navigate("/");
-        }
+        if (user) { navigate("/"); }
     }, [])
 
     return (
-        <div className="login-page-bg">
+        <div className="login-root-obsidian">
             <Navbar />
-            <div className='flex items-center justify-center max-w-7xl mx-auto px-4'>
-                <form onSubmit={submitHandler} className='login-form-3d w-full max-w-md p-8 my-16'>
-                    <div className="form-header text-center mb-8">
-                        <h1 className='font-extrabold text-3xl text-[#2E073F]'>Welcome Back</h1>
-                        <p className='text-gray-500 text-sm mt-2'>Login to access your personalized job portal</p>
+            <div className='flex items-center justify-center min-h-[80vh] max-w-7xl mx-auto px-4'>
+                <form onSubmit={submitHandler} className='login-card-royal w-full max-w-md p-10 my-16'>
+                    <div className="form-header-royal text-center mb-10">
+                        <div className="icon-vault mx-auto mb-4">
+                            <LockKeyhole size={32} className="text-[#f59e0b]" />
+                        </div>
+                        <h1 className='font-black text-4xl text-white tracking-tighter'>Access Vault</h1>
+                        <p className='text-slate-400 text-sm mt-2 font-medium'>Authenticate to enter the command center</p>
                     </div>
 
-                    <div className='input-container my-4'>
-                        <Label className="label-style">Email Address</Label>
+                    <div className='input-group-royal my-5'>
+                        <Label className="label-royal">Identity (Email)</Label>
                         <Input
                             type="email"
                             value={input.email}
                             name="email"
                             onChange={changeEventHandler}
-                            placeholder="name@company.com"
-                            className="input-field-3d"
+                            placeholder="agent@berozgaars.com"
+                            className="input-royal"
                         />
                     </div>
 
-                    <div className='input-container my-4'>
-                        <Label className="label-style">Password</Label>
+                    <div className='input-group-royal my-5'>
+                        <Label className="label-royal">Security Key</Label>
                         <Input
                             type="password"
                             value={input.password}
                             name="password"
                             onChange={changeEventHandler}
                             placeholder="••••••••"
-                            className="input-field-3d"
+                            className="input-royal"
                         />
                     </div>
 
-                    <div className='role-selection-wrapper my-6'>
-                        <Label className="label-style mb-3 block">Are you a Student or Recruiter?</Label>
-                        <RadioGroup className="flex items-center gap-6">
-                            <div className="radio-item">
+                    <div className='role-selection-royal my-8'>
+                        <Label className="label-royal mb-4 block text-center">Select Clearance Level</Label>
+                        <RadioGroup className="flex items-center justify-center gap-4">
+                            <div className={`role-pill ${input.role === 'student' ? 'active' : ''}`}>
                                 <Input
                                     type="radio"
                                     name="role"
@@ -101,11 +99,11 @@ const Login = () => {
                                     id="r1"
                                     checked={input.role === 'student'}
                                     onChange={changeEventHandler}
-                                    className="radio-input-3d"
+                                    className="hidden-radio"
                                 />
-                                <Label htmlFor="r1" className="cursor-pointer font-semibold">Student</Label>
+                                <Label htmlFor="r1" className="cursor-pointer font-bold px-4 py-2">Student</Label>
                             </div>
-                            <div className="radio-item">
+                            <div className={`role-pill ${input.role === 'recruiter' ? 'active' : ''}`}>
                                 <Input
                                     type="radio"
                                     name="role"
@@ -113,26 +111,24 @@ const Login = () => {
                                     id="r2"
                                     checked={input.role === 'recruiter'}
                                     onChange={changeEventHandler}
-                                    className="radio-input-3d"
+                                    className="hidden-radio"
                                 />
-                                <Label htmlFor="r2" className="cursor-pointer font-semibold">Recruiter</Label>
+                                <Label htmlFor="r2" className="cursor-pointer font-bold px-4 py-2">Recruiter</Label>
                             </div>
                         </RadioGroup>
                     </div>
 
-                    {
-                        loading ? (
-                            <Button className="login-btn-3d w-full" disabled>
-                                <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Validating...
-                            </Button>
-                        ) : (
-                            <Button type="submit" className="login-btn-3d w-full">Sign In</Button>
-                        )
-                    }
+                    {loading ? (
+                        <Button className="login-btn-royal loading-state w-full" disabled>
+                            <Loader2 className='mr-2 h-5 w-5 animate-spin' /> Decrypting...
+                        </Button>
+                    ) : (
+                        <Button type="submit" className="login-btn-royal w-full">Initialize Session</Button>
+                    )}
 
-                    <div className='text-center mt-6'>
-                        <span className='text-sm text-gray-600'>
-                            New to the portal? <Link to="/signup" className='signup-link'>Create an account</Link>
+                    <div className='text-center mt-8'>
+                        <span className='text-xs font-bold uppercase tracking-widest text-slate-500'>
+                            New Operative? <Link to="/signup" className='signup-link-royal'>Register Here</Link>
                         </span>
                     </div>
                 </form>

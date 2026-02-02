@@ -10,7 +10,7 @@ import { USER_API_END_POINT } from '@/utils/constant'
 import { toast } from 'sonner'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '@/redux/authSlice'
-import { Loader2 } from 'lucide-react'
+import { Loader2, UserPlus, UploadCloud } from 'lucide-react'
 import './Signup.css'
 
 const Signup = () => {
@@ -40,9 +40,7 @@ const Signup = () => {
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("password", input.password);
         formData.append("role", input.role);
-        if (input.file) {
-            formData.append("file", input.file);
-        }
+        if (input.file) { formData.append("file", input.file); }
 
         try {
             dispatch(setLoading(true));
@@ -55,7 +53,6 @@ const Signup = () => {
                 toast.success(res.data.message);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.response?.data?.message || "Registration failed");
         } finally {
             dispatch(setLoading(false));
@@ -63,124 +60,127 @@ const Signup = () => {
     }
 
     useEffect(() => {
-        if (user) {
-            navigate("/");
-        }
+        if (user) { navigate("/"); }
     }, [])
 
     return (
-        <div className='signup-page-container'>
+        <div className='signup-root-obsidian'>
             <Navbar />
-            <div className='flex items-center justify-center max-w-7xl mx-auto px-4'>
-                <form onSubmit={submitHandler} className='signup-form-3d w-full max-w-lg p-8 my-10'>
-                    <div className="text-center mb-6">
-                        <h1 className='font-extrabold text-3xl text-[#2E073F]'>Create Account</h1>
-                        <p className='text-gray-500 text-sm'>Join our community and find your dream job</p>
+            <div className='flex items-center justify-center min-h-[90vh] max-w-7xl mx-auto px-4'>
+                <form onSubmit={submitHandler} className='signup-card-royal w-full max-w-2xl p-10 my-10'>
+                    <div className="text-center mb-10">
+                        <div className="icon-enroll mx-auto mb-4">
+                            <UserPlus size={32} className="text-[#f59e0b]" />
+                        </div>
+                        <h1 className='font-black text-4xl text-white tracking-tighter'>Create Account</h1>
+                        <p className='text-slate-400 text-sm mt-2 font-medium uppercase tracking-widest'>Join the elite talent network</p>
                     </div>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                        <div className='input-group'>
-                            <Label className="label-style">Full Name</Label>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                        <div className='input-group-royal'>
+                            <Label className="label-royal">Full Name</Label>
                             <Input
                                 type="text"
                                 value={input.fullname}
                                 name="fullname"
                                 onChange={changeEventHandler}
                                 placeholder="John Doe"
-                                className="input-3d"
+                                className="input-royal"
                             />
                         </div>
-                        <div className='input-group'>
-                            <Label className="label-style">Email</Label>
+                        <div className='input-group-royal'>
+                            <Label className="label-royal">Email Address</Label>
                             <Input
                                 type="email"
                                 value={input.email}
                                 name="email"
                                 onChange={changeEventHandler}
                                 placeholder="john@example.com"
-                                className="input-3d"
+                                className="input-royal"
                             />
                         </div>
-                    </div>
-
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
-                        <div className='input-group'>
-                            <Label className="label-style">Phone Number</Label>
+                        <div className='input-group-royal'>
+                            <Label className="label-royal">Phone Number</Label>
                             <Input
                                 type="text"
                                 value={input.phoneNumber}
                                 name="phoneNumber"
                                 onChange={changeEventHandler}
-                                placeholder="91XXXXXXXX"
-                                className="input-3d"
+                                placeholder="+91 00000 00000"
+                                className="input-royal"
                             />
                         </div>
-                        <div className='input-group'>
-                            <Label className="label-style">Password</Label>
+                        <div className='input-group-royal'>
+                            <Label className="label-royal">Secret Password</Label>
                             <Input
                                 type="password"
                                 value={input.password}
                                 name="password"
                                 onChange={changeEventHandler}
                                 placeholder="••••••••"
-                                className="input-3d"
+                                className="input-royal"
                             />
                         </div>
                     </div>
 
-                    <div className='role-file-section mt-8 p-4 rounded-xl bg-[#FDF8FF] border border-[#EBD3F8]'>
-                        <div className='flex flex-col gap-4'>
-                            <Label className="label-style">Select Identity & Avatar</Label>
-                            <div className='flex flex-wrap items-center justify-between gap-4'>
+                    <div className='role-file-royal mt-10 p-6 rounded-3xl border border-white/5 bg-black/20'>
+                        <div className='flex flex-col md:flex-row items-center justify-between gap-8'>
+                            <div className="w-full md:w-1/2">
+                                <Label className="label-royal mb-4 block">Identity Type</Label>
                                 <RadioGroup className="flex items-center gap-4">
-                                    <div className="radio-option">
+                                    <div className={`role-pill-signup ${input.role === 'student' ? 'active' : ''}`}>
                                         <Input
                                             type="radio"
                                             name="role"
                                             value="student"
                                             checked={input.role === 'student'}
                                             onChange={changeEventHandler}
-                                            className="radio-input"
+                                            id="s1"
+                                            className="hidden-radio"
                                         />
-                                        <Label className="cursor-pointer font-medium">Student</Label>
+                                        <Label htmlFor="s1" className="cursor-pointer font-bold px-4 py-2">Student</Label>
                                     </div>
-                                    <div className="radio-option">
+                                    <div className={`role-pill-signup ${input.role === 'recruiter' ? 'active' : ''}`}>
                                         <Input
                                             type="radio"
                                             name="role"
                                             value="recruiter"
                                             checked={input.role === 'recruiter'}
                                             onChange={changeEventHandler}
-                                            className="radio-input"
+                                            id="s2"
+                                            className="hidden-radio"
                                         />
-                                        <Label className="cursor-pointer font-medium">Recruiter</Label>
+                                        <Label htmlFor="s2" className="cursor-pointer font-bold px-4 py-2">Recruiter</Label>
                                     </div>
                                 </RadioGroup>
-                                <div className='file-upload-wrapper'>
+                            </div>
+
+                            <div className="w-full md:w-1/2">
+                                <Label className="label-royal mb-4 block">Profile Image</Label>
+                                <div className='file-royal-container'>
+                                    <UploadCloud size={16} className="text-[#f59e0b]" />
                                     <Input
                                         accept="image/*"
                                         type="file"
                                         onChange={changeFileHandler}
-                                        className="file-input-field"
+                                        className="file-input-royal"
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {
-                        loading ? (
-                            <Button className="signup-btn-3d w-full mt-8" disabled>
-                                <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Creating Profile...
-                            </Button>
-                        ) : (
-                            <Button type="submit" className="signup-btn-3d w-full mt-8">Register Now</Button>
-                        )
-                    }
+                    {loading ? (
+                        <Button className="signup-btn-royal loading-state w-full mt-10" disabled>
+                            <Loader2 className='mr-2 h-5 w-5 animate-spin' /> Finalizing Profile...
+                        </Button>
+                    ) : (
+                        <Button type="submit" className="signup-btn-royal w-full mt-10">Register Now</Button>
+                    )}
 
-                    <div className='text-center mt-6'>
-                        <span className='text-sm text-gray-600'>
-                            Already have an account? <Link to="/login" className='login-link'>Login here</Link>
+                    <div className='text-center mt-8'>
+                        <span className='text-xs font-bold uppercase tracking-widest text-slate-500'>
+                            Already an operative? <Link to="/login" className='login-link-royal'>Login Here</Link>
                         </span>
                     </div>
                 </form>
@@ -189,4 +189,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Signup;
