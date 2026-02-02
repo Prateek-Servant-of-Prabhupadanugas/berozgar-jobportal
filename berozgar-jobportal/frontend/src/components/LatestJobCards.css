@@ -1,88 +1,95 @@
-.latest-job-card-3d {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 20px;
-    border: 1px solid rgba(122, 28, 172, 0.1);
+/* --- Royal Obsidian Shard --- */
+.latest-job-card-obsidian {
+    background: rgba(15, 23, 42, 0.5); /* Deep Glass */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.8rem;
+    border-radius: 24px;
+    border: 1px solid rgba(134, 10, 243, 0.2); /* Purple Edge */
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 10px 20px rgba(46, 7, 63, 0.04);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     transform-style: preserve-3d;
 }
 
-/* Hover Effect: Lifting and Glowing */
-.latest-job-card-3d:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(122, 28, 172, 0.15);
-    border-color: #AD49E1;
+.latest-job-card-obsidian:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: #f59e0b; /* Amber Gold Edge */
+    box-shadow: 0 25px 50px rgba(134, 10, 243, 0.2);
 }
 
-.card-content-inner {
+.card-content-inner-royal {
     position: relative;
     z-index: 2;
 }
 
-.company-title-3d {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #2E073F; /* Your Dark Purple */
-}
-
-.location-subtext {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    font-weight: 500;
-}
-
-.job-role-title-3d {
+.company-title-royal {
     font-weight: 800;
-    font-size: 1.2rem;
-    color: #7A1CAC; /* Secondary Purple */
-    letter-spacing: -0.01em;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
 }
 
-.job-desc-snippet {
-    font-size: 0.85rem;
-    color: #475569;
-    line-height: 1.5;
+.location-subtext-royal {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.job-role-title-royal {
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.job-desc-snippet-royal {
+    font-size: 0.9rem;
+    line-height: 1.6;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Truncates long text beautifully */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* Badge Styling with 3D Pop */
-.latest-badge {
-    font-weight: 700 !important;
-    font-size: 0.75rem !important;
-    border-radius: 6px !important;
-    border: 1px solid transparent !important;
+/* --- Badge Styling --- */
+.latest-badge-royal {
+    font-weight: 800 !important;
+    font-size: 0.7rem !important;
+    padding: 4px 10px !important;
+    border-radius: 8px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.pos-tag { color: #3b82f6 !important; background: rgba(59, 130, 246, 0.08) !important; }
-.type-tag { color: #F83002 !important; background: rgba(248, 48, 2, 0.08) !important; }
-.salary-tag { color: #7A1CAC !important; background: rgba(122, 28, 172, 0.08) !important; }
+.pos-tag { color: #60a5fa !important; background: rgba(96, 165, 250, 0.1) !important; }
+.type-tag { color: #f87171 !important; background: rgba(248, 113, 113, 0.1) !important; }
+.salary-tag { color: #f59e0b !important; background: rgba(245, 158, 11, 0.1) !important; }
 
-/* Subtle Purple Gradient Glow on Hover */
-.card-glow-accent {
+/* --- Animated Light Sweep --- */
+.card-glow-royal {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(173, 73, 225, 0.1), transparent);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(134, 10, 243, 0.1) 0%, transparent 70%);
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
 }
 
-.latest-job-card-3d:hover .card-glow-accent {
+.latest-job-card-obsidian:hover .card-glow-royal {
     opacity: 1;
+    animation: rotateGlow 4s linear infinite;
 }
 
-/* Responsive Handling */
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 @media (max-width: 640px) {
-    .latest-job-card-3d:hover {
-        transform: translateY(-5px); /* Reduced movement for mobile */
-    }
+    .latest-job-card-obsidian { padding: 1.5rem; }
+    .latest-job-card-obsidian:hover { transform: translateY(-5px); }
 }

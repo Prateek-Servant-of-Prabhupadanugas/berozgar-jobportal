@@ -2,26 +2,28 @@
 .applied-jobs-container {
     perspective: 1200px;
     padding: 2rem;
+    background: transparent; /* Ensure background shows through */
 }
 
-/* --- The Main 3D Card (Dark Purple Theme) --- */
+/* --- The Main 3D Card (Glassmorphism) --- */
 .table-3d-wrapper {
-    background: linear-gradient(135deg, rgba(46, 7, 63, 0.05) 0%, rgba(122, 28, 172, 0.05) 100%);
-    backdrop-filter: blur(20px);
+    background: rgba(15, 23, 42, 0.4); /* Deep dark blue/black transparent */
+    backdrop-filter: blur(12px); /* Makes the falling cubes look frosted */
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
-    border: 1px solid rgba(122, 28, 172, 0.2);
+    border: 1px solid rgba(134, 10, 243, 0.2); /* Royal Purple border */
     padding: 1.5rem;
-    box-shadow: 0 25px 50px -12px rgba(46, 7, 63, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     transform: rotateX(1deg);
     transition: all 0.5s ease;
 }
 
 /* --- Header Section --- */
 .header-row-3d {
-    background: #2E073F !important; /* Your Primary Dark Purple */
+    background: rgba(46, 7, 63, 0.8) !important; /* Royal Dark Purple */
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(46, 7, 63, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .header-row-3d th {
@@ -32,35 +34,35 @@
     letter-spacing: 0.1em;
 }
 
-/* --- 3D Floating Rows --- */
+/* --- 3D Floating Glass Rows --- */
 .row-3d {
-    background: white !important;
+    background: rgba(255, 255, 255, 0.03) !important; /* Very subtle glass white */
     margin-bottom: 15px;
-    border-radius: 15px !important;
-    border: 1px solid #EBD3F8 !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(235, 211, 248, 0.1) !important;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    box-shadow: 0 4px 0px #AD49E1; /* Purple depth line */
+    box-shadow: 0 4px 0px rgba(173, 73, 225, 0.3); /* Purple depth line */
 }
 
 .row-3d:hover {
-    transform: translateY(-8px) scale(1.02) rotateX(-2deg);
-    box-shadow: 0 20px 30px rgba(122, 28, 172, 0.15);
-    background: #fdfaff !important;
+    transform: translateY(-8px) scale(1.01) rotateX(-1deg);
+    box-shadow: 0 20px 30px rgba(134, 10, 243, 0.2);
+    background: rgba(255, 255, 255, 0.07) !important;
     z-index: 50;
 }
 
-/* --- Company Tag --- */
-.company-tag-purple {
-    background: #EBD3F8;
-    color: #2E073F;
+/* --- Company Tag (Royal Amber Theme) --- */
+.company-tag-royal {
+    background: rgba(245, 158, 11, 0.1); /* Amber transparent */
+    color: #f59e0b;
     padding: 5px 12px;
     border-radius: 8px;
     font-weight: 700;
     font-size: 0.85rem;
-    border: 1px solid rgba(122, 28, 172, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
-/* --- 3D Status Badges --- */
+/* --- 3D Status Badges (Keep your solid pop colors) --- */
 .status-badge-3d {
     padding: 6px 14px !important;
     border-radius: 10px !important;
@@ -69,9 +71,9 @@
     font-weight: 800 !important;
 }
 
-.status-accepted { background: #22c55e !important; box-shadow: 0 4px 0px #15803d !important; }
-.status-pending { background: #7A1CAC !important; box-shadow: 0 4px 0px #4E0E6E !important; } /* Purplish Pending */
-.status-rejected { background: #ef4444 !important; box-shadow: 0 4px 0px #b91c1c !important; }
+.status-accepted { background: #16a34a !important; box-shadow: 0 4px 0px #14532d !important; }
+.status-pending { background: #7A1CAC !important; box-shadow: 0 4px 0px #4E0E6E !important; }
+.status-rejected { background: #dc2626 !important; box-shadow: 0 4px 0px #7f1d1d !important; }
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
@@ -80,13 +82,11 @@
         padding: 1rem;
     }
     
-    /* Convert table to 3D purple cards */
-    .custom-3d-table thead { display: none; }
     .row-3d {
         display: block;
         padding: 1.5rem;
         margin-bottom: 25px;
-        text-align: center;
+        background: rgba(255, 255, 255, 0.05) !important;
     }
     
     .row-3d td {
@@ -94,7 +94,6 @@
         width: 100%;
         padding: 0.5rem 0 !important;
         text-align: center !important;
+        border: none !important;
     }
-    
-    .job-title-cell { font-size: 1.25rem; margin-bottom: 5px; }
 }

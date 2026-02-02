@@ -1,89 +1,95 @@
-/* --- Dialog Container --- */
-.dialog-3d-content {
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(122, 28, 172, 0.2) !important;
-    border-radius: 24px !important;
-    box-shadow: 0 25px 50px rgba(46, 7, 63, 0.2) !important;
-    perspective: 1000px;
+/* --- Royal Obsidian Dialog --- */
+.dialog-obsidian-content {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(134, 10, 243, 0.4) !important;
+    border-radius: 30px !important;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(134, 10, 243, 0.2) !important;
+    color: white !important;
 }
 
-.dialog-title-3d {
-    color: #2E073F;
-    font-weight: 800 !important;
-    font-size: 1.5rem !important;
-    text-align: center;
+.dialog-title-royal {
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+    letter-spacing: -1px;
+    text-align: left;
 }
 
-/* --- Input Grouping --- */
-.input-group-3d {
+/* --- Royal Input Fields --- */
+.input-group-royal {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    transform: translateZ(10px);
 }
 
-.label-3d {
-    font-weight: 700 !important;
-    color: #7A1CAC !important;
-    font-size: 0.85rem !important;
+.label-royal {
+    font-weight: 800 !important;
+    color: #f59e0b !important; /* Amber Gold labels */
+    font-size: 0.75rem !important;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.input-3d {
-    background: white !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 10px !important;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.03) !important;
-    transition: all 0.3s ease !important;
-}
-
-.input-3d:focus {
-    border-color: #AD49E1 !important;
-    box-shadow: 0 0 0 3px rgba(173, 73, 225, 0.1) !important;
-    transform: translateY(-2px) translateZ(5px);
-}
-
-.file-input-3d {
-    cursor: pointer;
-    border: 2px dashed #EBD3F8 !important;
-    background: #fdfaff !important;
-}
-
-/* --- 3D Update Button --- */
-.update-btn-3d {
-    background: #7A1CAC !important;
+.input-royal {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     color: white !important;
     border-radius: 12px !important;
-    font-weight: 700 !important;
-    padding: 1.5rem !important;
-    box-shadow: 0 6px 0px #2E073F !important;
-    transition: all 0.1s ease !important;
-    margin-top: 10px;
+    padding: 1.2rem !important;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
 }
 
-.update-btn-3d:hover:not(:disabled) {
+.input-royal:focus {
+    background: rgba(134, 10, 243, 0.1) !important;
+    border-color: #f59e0b !important;
+    outline: none !important;
+    transform: scale(1.02);
+}
+
+.file-input-royal {
+    border: 2px dashed rgba(134, 10, 243, 0.4) !important;
+    background: rgba(134, 10, 243, 0.05) !important;
+    color: #94a3b8 !important;
+    cursor: pointer;
+}
+
+/* --- Royal Submit Button --- */
+.update-btn-royal {
+    background: #7A1CAC !important;
+    color: white !important;
+    border-radius: 16px !important;
+    font-weight: 900 !important;
+    padding: 1.6rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 0px #2E073F !important;
+    transition: all 0.2s ease !important;
+}
+
+.update-btn-royal:hover:not(:disabled) {
     background: #AD49E1 !important;
     transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(122, 28, 172, 0.4) !important;
 }
 
-.update-btn-3d:active:not(:disabled) {
+.update-btn-royal:active:not(:disabled) {
     transform: translateY(4px);
     box-shadow: 0 0px 0px #2E073F !important;
 }
 
 .loading-state {
-    opacity: 0.8;
+    opacity: 0.7;
     background: #2E073F !important;
-    box-shadow: none !important;
-    transform: scale(0.98);
 }
 
-/* --- Mobile Fix --- */
-@media (max-width: 640px) {
-    .dialog-3d-content {
-        width: 95% !important;
-        margin: auto;
-    }
+/* --- Custom Scrollbar for Dialog (if content overflows) --- */
+.dialog-obsidian-content::-webkit-scrollbar {
+    width: 6px;
+}
+.dialog-obsidian-content::-webkit-scrollbar-thumb {
+    background: #7A1CAC;
+    border-radius: 10px;
 }

@@ -1,27 +1,96 @@
-.legal-bg { background: #f3e8ff; min-height: 100vh; padding-bottom: 50px; }
-
-.legal-container {
-    max-width: 800px;
-    margin: 50px auto;
-    perspective: 1000px;
+.legal-root-obsidian {
+    background: transparent; /* Allows your 4-cube background to show */
+    min-height: 100vh;
+    padding-bottom: 80px;
 }
 
-.legal-doc-3d {
-    background: white;
-    padding: 4rem;
-    border-radius: 10px;
-    transform: rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1), 
-                0 40px 80px rgba(122, 28, 172, 0.1);
-    border-top: 8px solid #7A1CAC;
+.legal-container-royal {
+    max-width: 900px;
+    margin: 60px auto;
+    perspective: 2000px;
+    padding: 0 20px;
 }
 
-.legal-title { font-size: 2.5rem; font-weight: 900; color: #2E073F; }
+.legal-tablet-3d {
+    background: rgba(15, 23, 42, 0.7); /* Deep Obsidian Glass */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 4.5rem;
+    border-radius: 40px;
+    border: 1px solid rgba(134, 10, 243, 0.3);
+    transform: rotateX(2deg);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(134, 10, 243, 0.1);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
 
-.legal-body h3 { 
-    color: #7A1CAC; 
+/* Subtle glow strip at the top */
+.legal-tablet-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7A1CAC, #f59e0b, #AD49E1);
+}
+
+.legal-tablet-3d:hover {
+    transform: rotateX(0deg) translateY(-10px);
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.legal-title-royal {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.last-updated-royal {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.legal-divider-royal {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.5), transparent);
+    margin-bottom: 3rem;
+}
+
+.legal-body-royal section {
+    margin-bottom: 2.5rem;
+}
+
+.legal-body-royal h3 { 
+    color: #f59e0b; /* Amber Gold Subheadings */
+    font-size: 1.25rem;
     font-weight: 800; 
-    margin-top: 2rem;
-    border-left: 4px solid #AD49E1;
-    padding-left: 10px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.legal-body-royal p {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    opacity: 0.9;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .legal-tablet-3d {
+        padding: 2rem;
+        border-radius: 20px;
+        transform: none !important;
+    }
+    .legal-title-royal {
+        font-size: 2rem;
+    }
 }

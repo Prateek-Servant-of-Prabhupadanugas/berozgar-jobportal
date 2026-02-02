@@ -18,7 +18,7 @@ const HeroSection = () => {
 
     return (
         <div className='hero-root-container'>
-            {/* 3D Background Decorative Elements */}
+            {/* Soft Ambient Orbs for Depth */}
             <div className="purple-orb orb-1"></div>
             <div className="purple-orb orb-2"></div>
 
@@ -32,14 +32,14 @@ const HeroSection = () => {
 
                     <h1 className='hero-main-title text-5xl md:text-7xl font-extrabold'>
                         Search, Apply & <br /> 
-                        Get Your <span className='text-gradient-purple'>Dream Jobs</span>
+                        Get Your <span className='text-gradient-royal'>Dream Jobs</span>
                     </h1>
 
                     <p className='hero-subtitle mx-auto max-w-2xl'>
                         Discover thousands of opportunities across the globe with our 3D-powered recruitment platform. Your next career move starts here.
                     </p>
 
-                    {/* 3D Search Bar */}
+                    {/* The Royal Search Architecture */}
                     <div className='search-3d-wrapper mx-auto'>
                         <div className='search-glass-inner flex items-center gap-4'>
                             <input
@@ -62,4 +62,4 @@ const HeroSection = () => {
     )
 }
 
-export default HeroSection
+export default HeroSection;

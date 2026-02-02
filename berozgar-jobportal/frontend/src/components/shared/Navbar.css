@@ -1,131 +1,129 @@
-/* --- High-Level Container --- */
+/* --- Royal Navbar Container --- */
 .navbar-container {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 0.75rem 1.25rem;
-    perspective: 1500px;
+    padding: 0.75rem 1.5rem; /* Reduced padding for a sleeker profile */
+    perspective: 1200px;
+    background: transparent;
 }
 
-/* --- The Floating Glass Bar --- */
+/* --- Obsidian Glass Bar --- */
 .navbar-glass-wrapper {
-    position: relative;
-    z-index: 1010; /* Above the mobile sidebar */
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 22px;
+    background: rgba(15, 23, 42, 0.4); 
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    /* Added a subtle top-lighting effect */
     box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.06),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* --- The 3D Sliding Drawer (Under the Navbar) --- */
-.mobile-sidebar-3d {
+.navbar-glass-wrapper:hover {
+    transform: rotateX(2deg) translateY(-2px);
+    border-color: rgba(245, 158, 11, 0.2); /* Faint amber glow on hover */
+}
+
+/* --- 3D Mobile Sidebar --- */
+.mobile-sidebar-royal {
     position: absolute;
-    top: 25px; 
+    top: 100%; /* Relative to navbar-container */
     left: 1.5rem;
     right: 1.5rem;
-    z-index: 990; /* BELOW the navbar-glass-wrapper */
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    border-radius: 0 0 28px 28px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-top: none;
-    
-    /* Animation: Slide out from behind bar */
-    transform: translateY(-110%) rotateX(-25deg);
+    z-index: 990;
+    background: rgba(2, 6, 23, 0.9);
+    backdrop-filter: blur(30px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-20px) rotateX(-45deg) scale(0.95);
     transform-origin: top center;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.mobile-sidebar-3d.open {
-    transform: translateY(40px) rotateX(0deg); 
+.mobile-sidebar-royal.open {
+    transform: translateY(15px) rotateX(0deg) scale(1); 
     opacity: 1;
     pointer-events: auto;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
 }
 
-/* --- 3D Elements & Hover Effects --- */
-.logo-3d h1 {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* --- Nav Links --- */
+.nav-item-royal a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
-.logo-3d:hover h1 {
-    transform: translateZ(25px) scale(1.05);
+.nav-item-royal:hover a {
+    color: #f59e0b; 
+    transform: translateZ(20px) scale(1.05);
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
 }
 
-.nav-item {
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.nav-item:hover {
-    transform: translateY(-2px);
-    color: #6A38C2;
-}
-
-/* The "Push" 3D Button */
-.btn-3d-purple {
-    background: linear-gradient(145deg, #6A38C2, #5b30a6) !important;
-    color: white !important;
+/* --- Royal Buttons (Amber Focus) --- */
+.btn-royal-amber {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: #020617 !important; /* Dark text for high contrast on gold */
     border: none !important;
     border-radius: 12px !important;
-    box-shadow: 0 4px 0px #42228a !important;
-    transition: all 0.1s ease !important;
-    transform: translateY(-2px);
+    font-weight: 850 !important;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
-.btn-3d-purple:active {
-    transform: translateY(2px);
-    box-shadow: 0 0px 0px #42228a !important;
+.btn-royal-amber:hover {
+    transform: translateY(-3px) translateZ(15px);
+    box-shadow: 0 12px 25px rgba(245, 158, 11, 0.4) !important;
+    filter: brightness(1.1);
 }
 
-/* Popover & Overlays */
-.popover-3d-glass {
-    background: rgba(255, 255, 255, 0.9) !important;
-    backdrop-filter: blur(20px) !important;
-    border-radius: 20px !important;
-    border: 1px solid white !important;
-    box-shadow: 20px 20px 60px rgba(0,0,0,0.1) !important;
-    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* --- Avatar & Popover --- */
+.avatar-royal-ring {
+    padding: 2px;
+    background: linear-gradient(45deg, #f59e0b, #860af3, #f59e0b);
+    background-size: 200% 200%;
+    animation: ringGlow 4s linear infinite;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
 }
 
-@keyframes popIn {
-    from { transform: scale(0.8) translateY(-10px); opacity: 0; }
-    to { transform: scale(1) translateY(0); opacity: 1; }
+.avatar-royal-ring:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
+@keyframes ringGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.popover-royal-glass {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(40px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* --- Menu Overlay --- */
 .menu-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(4px);
-    z-index: 900;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
+    z-index: 900;
 }
 
 .menu-overlay.active {
     opacity: 1;
     pointer-events: auto;
-}
-
-/* Avatar Depth */
-.avatar-3d-ring {
-    padding: 2px;
-    background: linear-gradient(45deg, #6A38C2, #F83002);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-
-.avatar-3d-ring:hover {
-    transform: scale(1.1) rotate(5deg);
 }

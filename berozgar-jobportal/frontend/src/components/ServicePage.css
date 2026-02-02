@@ -1,52 +1,104 @@
-.service-page-wrapper { background: #fdfaff; min-height: 100vh; }
+.service-root-obsidian {
+    background: transparent;
+    min-height: 100vh;
+}
 
-.hero-3d-section {
-    background: linear-gradient(135deg, #2E073F 0%, var(--theme-color) 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+/* --- Obsidian Hero Section --- */
+.hero-obsidian-section {
+    background: radial-gradient(circle at center, rgba(122, 28, 172, 0.2) 0%, #0f172a 100%);
+    border-bottom: 1px solid rgba(134, 10, 243, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title-royal {
+    font-size: 4.5rem;
+    font-weight: 950;
     color: white;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
 }
 
-.hero-title-3d {
-    font-size: 3.5rem;
-    font-weight: 900;
-    text-shadow: 5px 5px 0px rgba(0,0,0,0.2);
-    animation: floating 3s ease-in-out infinite;
+.hero-subtitle-royal {
+    font-size: 1.2rem;
+    max-width: 600px;
+    font-weight: 500;
 }
 
-.content-card-3d {
-    background: white;
-    padding: 3rem;
+/* --- Floating Content Card --- */
+.content-card-obsidian {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    padding: 4rem;
     border-radius: 40px;
-    box-shadow: 0 30px 60px rgba(46, 7, 63, 0.1);
-    border: 1px solid rgba(173, 73, 225, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.program-item-3d {
-    padding: 1.5rem;
-    border-radius: 15px;
-    background: #fcfaff;
-    border: 1px solid #eee;
+/* --- Program Slots --- */
+.program-slot-royal {
+    padding: 1.8rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+}
+
+.program-slot-royal:hover {
+    background: rgba(134, 10, 243, 0.1);
+    border-color: #f59e0b;
+    transform: translateX(10px) scale(1.02);
+}
+
+.chevron-circle {
+    background: rgba(134, 10, 243, 0.3);
+    padding: 6px;
+    border-radius: 50%;
     transition: all 0.3s ease;
 }
 
-.program-item-3d:hover {
-    transform: translateX(10px) translateZ(20px);
-    border-color: #AD49E1;
-    box-shadow: -5px 5px 15px rgba(122, 28, 172, 0.1);
+.program-slot-royal:hover .chevron-circle {
+    background: #f59e0b;
+    transform: rotate(-45deg);
 }
 
-.apply-now-btn {
-    margin-top: 2rem;
+/* --- Royal CTA Button --- */
+.apply-btn-royal-service {
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
     background: #7A1CAC;
     color: white;
-    font-weight: 800;
-    border-radius: 15px;
-    box-shadow: 0 6px 0 #2E073F;
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 8px 0 #2E073F;
+    transition: all 0.2s ease;
 }
 
-@keyframes floating {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.apply-btn-royal-service:hover {
+    background: #AD49E1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(122, 28, 172, 0.3);
+}
+
+.apply-btn-royal-service:active {
+    transform: translateY(6px);
+    box-shadow: 0 2px 0 #2E073F;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .hero-title-royal { font-size: 2.8rem; }
+    .content-card-obsidian { padding: 2rem; }
+    .hero-obsidian-section { padding-top: 4rem; }
 }

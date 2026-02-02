@@ -1,77 +1,79 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
     return (
-        <footer className="footer-container">
-            {/* The 3D Glass Card wrapper */}
-            <div className="footer-glass-card mx-auto max-w-7xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 p-10 lg:p-16">
+        <footer className="footer-root-obsidian">
+            <div className="footer-obsidian-slab mx-auto max-w-7xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 p-12 lg:p-16">
                     
                     {/* Brand Section */}
-                    <div className="footer-section brand-column">
-                        
-                        <h1 className='text-3xl font-bold mb-4 logo-3d-footer'>
-                            Be<span className='text-[#860af3]'>Rozgaars</span>
+                    <div className="footer-column">
+                        <h1 className='text-3xl font-black mb-6 logo-royal-footer text-white'>
+                            Be<span className='text-[#f59e0b]'>Rozgaars</span>
                         </h1>
-                        
-                        <p className="text-gray-500 leading-relaxed mb-6">
-                            Connecting talent with opportunity through a seamless recruitment experience.
+                        <p className="text-slate-400 leading-relaxed mb-8 font-medium">
+                            Architecting the future of recruitment with a seamless, high-fidelity talent experience.
                         </p>
                         <div className="flex gap-4">
-                            <div className="social-icon-3d"><Facebook size={20} /></div>
-                            <div className="social-icon-3d"><Twitter size={20} /></div>
-                            <div className="social-icon-3d"><Instagram size={20} /></div>
-                            <div className="social-icon-3d"><Linkedin size={20} /></div>
+                            <div className="social-pill-royal"><Facebook size={18} /></div>
+                            <div className="social-pill-royal"><Twitter size={18} /></div>
+                            <div className="social-pill-royal"><Instagram size={18} /></div>
+                            <div className="social-pill-royal"><Linkedin size={18} /></div>
                         </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div className="footer-section">
-                        <h3 className="text-lg font-bold mb-6 text-gray-800">Quick Links</h3>
+                    <div className="footer-column">
+                        <h3 className="column-title-royal">Ecosystem</h3>
                         <ul className="space-y-4">
-                            <li className="footer-link">About Us</li>
-                            <li className="footer-link">Contact Support</li>
-                            <li className="footer-link">Our Services</li>
-                            <li className="footer-link">Terms of Service</li>
+                            <li className="footer-link-royal">About Our Mission</li>
+                            <li className="footer-link-royal">Contact Support</li>
+                            <li className="footer-link-royal">Service Directory</li>
+                            <li className="footer-link-royal">Legal Framework</li>
                         </ul>
                     </div>
 
                     {/* For Candidates */}
-                    <div className="footer-section">
-                        <h3 className="text-lg font-bold mb-6 text-gray-800">For Candidates</h3>
+                    <div className="footer-column">
+                        <h3 className="column-title-royal">For Pioneers</h3>
                         <ul className="space-y-4">
-                            <li className="footer-link">Browse Jobs</li>
-                            <li className="footer-link">Candidate Dashboard</li>
-                            <li className="footer-link">Job Alerts</li>
-                            <li className="footer-link">Resume Builder</li>
+                            <li className="footer-link-royal">Explore Opportunities</li>
+                            <li className="footer-link-royal">User Command Center</li>
+                            <li className="footer-link-royal">Priority Alerts</li>
+                            <li className="footer-link-royal">Resume Optimization</li>
                         </ul>
                     </div>
 
                     {/* Contact Info */}
-                    <div className="footer-section">
-                        <h3 className="text-lg font-bold mb-6 text-gray-800">Contact Us</h3>
-                        <div className="space-y-4">
-                            <div className="flex items-center gap-3 text-gray-500 footer-contact-item">
-                                <MapPin size={18} className="text-blue-500" />
-                                <span>Vadodara</span>
+                    <div className="footer-column">
+                        <h3 className="column-title-royal">Headquarters</h3>
+                        <div className="space-y-5">
+                            <div className="flex items-center gap-4 contact-item-royal">
+                                <div className="contact-icon-box"><MapPin size={16} /></div>
+                                <span className="text-slate-300">Vadodara, Gujarat</span>
                             </div>
-                            
-                            <div className="flex items-center gap-3 text-gray-500 footer-contact-item">
-                                <Mail size={18} className="text-blue-500" />
-                                <span>support@berozgaars.com</span>
+                            <div className="flex items-center gap-4 contact-item-royal">
+                                <div className="contact-icon-box"><Mail size={16} /></div>
+                                <span className="text-slate-300">hq@berozgaars.com</span>
+                            </div>
+                            <div className="mt-6 flex items-center gap-2 text-[#f59e0b] font-bold text-sm uppercase tracking-widest">
+                                <Sparkles size={14} />
+                                <span>Powered by AI</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="footer-bottom-bar px-10 py-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-gray-400">© 2026 Berozgaars. All rights reserved.</p>
-                    <div className="flex gap-8 text-sm text-gray-400">
-                        <span className="hover:text-blue-500 cursor-pointer transition-colors">Privacy Policy</span>
-                        <span className="hover:text-blue-500 cursor-pointer transition-colors">Cookies</span>
+                <div className="footer-bottom-royal px-12 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">
+                        © 2026 Berozgaars. Secured & Encrypted.
+                    </p>
+                    <div className="flex gap-10 text-xs font-bold uppercase tracking-widest text-slate-500">
+                        <span className="hover:text-[#f59e0b] cursor-pointer transition-all">Privacy Policy</span>
+                        <span className="hover:text-[#f59e0b] cursor-pointer transition-all">Cookies</span>
                     </div>
                 </div>
             </div>

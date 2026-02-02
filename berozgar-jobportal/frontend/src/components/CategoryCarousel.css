@@ -2,93 +2,98 @@
 .carousel-3d-container {
     perspective: 1200px;
     overflow: visible !important;
+    background: transparent;
 }
 
 .carousel-perspective {
     transform-style: preserve-3d;
 }
 
-/* --- The Category Card & Button --- */
+/* --- The Glass Category Button --- */
 .category-card-3d {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     transform-style: preserve-3d;
-    transition: transform 0.4s ease;
 }
 
-.category-btn-3d {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 2px solid #AD49E1 !important; /* Action Purple */
-    color: #2E073F !important; /* Dark Purple Text */
+.category-btn-royal {
+    background: rgba(46, 7, 63, 0.4) !important; /* Deep Purple Glass */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(134, 10, 243, 0.4) !important; /* Purple Edge */
+    color: #f1f5f9 !important;
     border-radius: 50px !important;
     padding: 1.5rem 2rem !important;
     font-weight: 700 !important;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     position: relative;
     z-index: 2;
     transform: translateZ(20px);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    box-shadow: 0 10px 20px rgba(46, 7, 63, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
 }
 
-.category-card-3d:hover .category-btn-3d {
-    transform: translateZ(50px) scale(1.1);
-    background: #2E073F !important;
-    color: #EBD3F8 !important;
-    border-color: #AD49E1 !important;
-    box-shadow: 0 20px 40px rgba(46, 7, 63, 0.3);
+.category-card-3d:hover .category-btn-royal {
+    transform: translateZ(60px) scale(1.1);
+    background: rgba(134, 10, 243, 0.2) !important;
+    border-color: #f59e0b !important; /* Amber edge on hover */
+    color: #ffffff !important;
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
 }
 
-/* --- Floating Shadow Effect --- */
-.card-shadow-3d {
+/* --- Royal Glow Effect (Instead of Shadow) --- */
+.card-glow-royal {
     position: absolute;
-    bottom: -15px;
-    width: 60%;
-    height: 10px;
-    background: rgba(46, 7, 63, 0.2);
-    filter: blur(8px);
+    bottom: -10px;
+    width: 50%;
+    height: 15px;
+    background: radial-gradient(circle, rgba(134, 10, 243, 0.6) 0%, transparent 70%);
+    filter: blur(10px);
     border-radius: 50%;
     transform: rotateX(90deg) translateZ(-20px);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    opacity: 0.5;
 }
 
-.category-card-3d:hover .card-shadow-3d {
+.category-card-3d:hover .card-glow-royal {
     width: 80%;
-    background: rgba(46, 7, 63, 0.4);
-    filter: blur(12px);
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, transparent 70%);
+    opacity: 1;
 }
 
 /* --- Navigation Buttons (Arrows) --- */
-.nav-btn-3d {
-    background: #7A1CAC !important; /* Secondary Purple */
+.nav-btn-royal {
+    background: rgba(15, 23, 42, 0.8) !important; /* Obsidian */
+    color: #f59e0b !important; /* Amber Arrows */
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    width: 45px !important;
+    height: 45px !important;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.2s ease !important;
+}
+
+.nav-btn-royal:hover {
+    background: #7A1CAC !important;
     color: white !important;
-    border: none !important;
-    width: 50px !important;
-    height: 50px !important;
-    box-shadow: 0 6px 0px #2E073F !important; /* Dark bottom edge */
-    transition: all 0.1s ease !important;
+    transform: scale(1.1) !important;
+    border-color: #f59e0b !important;
 }
 
-.nav-btn-3d:hover {
-    background: #AD49E1 !important;
-    transform: translateY(-2px);
+.nav-btn-royal:active {
+    transform: scale(0.9) !important;
 }
 
-.nav-btn-3d:active {
-    transform: translateY(4px) !important;
-    box-shadow: 0 0px 0px #2E073F !important;
-}
-
-/* --- Responsiveness --- */
+/* --- Mobile Adjustments --- */
 @media (max-width: 768px) {
-    .category-btn-3d {
-        padding: 1.25rem 1.5rem !important;
-        font-size: 0.85rem !important;
+    .category-btn-royal {
+        padding: 1.1rem 1.3rem !important;
+        font-size: 0.8rem !important;
     }
-    
     .carousel-3d-container {
-        padding: 0 40px; /* Space for arrows on mobile */
+        padding: 0 20px;
     }
 }

@@ -23,11 +23,11 @@ const Browse = () => {
             <div className='max-w-7xl mx-auto my-10 px-4'>
                 {/* 3D Header Section */}
                 <div className="browse-header-3d">
-                    <h1 className='font-bold text-2xl my-10 section-title'>
+                    <h1 className='font-bold text-2xl my-10 section-title text-white'>
                         Search Results 
                         <span className='results-badge'>{allJobs.length}</span>
                     </h1>
-                    <div className="title-underline"></div>
+                    <div className="title-underline-royal"></div>
                 </div>
 
                 {/* Responsive 3D Grid */}
@@ -36,6 +36,7 @@ const Browse = () => {
                         allJobs.map((job) => {
                             return (
                                 <div key={job._id} className="job-card-wrapper">
+                                    {/* Ensure your Job component also uses glassmorphism */}
                                     <Job job={job} />
                                 </div>
                             )
@@ -44,7 +45,7 @@ const Browse = () => {
                 </div>
                 
                 {allJobs.length === 0 && (
-                    <div className="empty-state-3d">
+                    <div className="empty-state-glass">
                         <p>No jobs found matching your criteria.</p>
                     </div>
                 )}

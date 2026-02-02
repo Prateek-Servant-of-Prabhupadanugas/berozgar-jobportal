@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './ui/button';
-import { Bookmark } from 'lucide-react';
+import { Bookmark, MapPin, Briefcase, IndianRupee } from 'lucide-react';
 import { Avatar, AvatarImage } from './ui/avatar';
 import { Badge } from './ui/badge';
 import { useNavigate } from 'react-router-dom';
@@ -17,54 +17,62 @@ const Job = ({ job }) => {
     }
 
     return (
-        <div className='job-card-3d'>
-            {/* Top Section: Date & Bookmark */}
+        <div className='job-card-obsidian'>
+            {/* Date & Bookmark */}
             <div className='flex items-center justify-between mb-4'>
-                <p className='days-badge-3d'>
+                <p className='days-badge-royal'>
                     {daysAgoFunction(job?.createdAt) === 0 ? "Today" : `${daysAgoFunction(job?.createdAt)} days ago`}
                 </p>
-                <Button variant="ghost" className="bookmark-btn-3d" size="icon">
+                <Button variant="ghost" className="bookmark-btn-royal" size="icon">
                     <Bookmark size={20} />
                 </Button>
             </div>
 
             {/* Company Info Section */}
             <div className='flex items-center gap-4 my-4'>
-                <div className='logo-container-3d'>
-                    <Avatar className="w-12 h-12 shadow-inner">
+                <div className='logo-container-royal'>
+                    <Avatar className="w-12 h-12 shadow-2xl">
                         <AvatarImage src={job?.company?.logo} />
                     </Avatar>
                 </div>
                 <div>
-                    <h1 className='company-name-3d'>{job?.company?.name}</h1>
-                    <p className='location-text-3d'>India</p>
+                    <h1 className='company-name-royal text-white'>{job?.company?.name}</h1>
+                    <div className='flex items-center gap-1 text-[#f59e0b] opacity-80 text-xs'>
+                        <MapPin size={12} />
+                        <span>India</span>
+                    </div>
                 </div>
             </div>
 
             {/* Job Details Section */}
             <div className='job-content-3d'>
-                <h1 className='job-title-3d'>{job?.title}</h1>
-                <p className='job-desc-3d line-clamp-2'>{job?.description}</p>
+                <h1 className='job-title-royal text-white'>{job?.title}</h1>
+                <p className='job-desc-royal line-clamp-2 text-slate-400'>{job?.description}</p>
             </div>
 
             {/* Badges Section */}
             <div className='flex flex-wrap items-center gap-2 mt-5'>
-                <Badge className='badge-3d pos-badge' variant="ghost">{job?.position} Positions</Badge>
-                <Badge className='badge-3d type-badge' variant="ghost">{job?.jobType}</Badge>
-                <Badge className='badge-3d salary-badge' variant="ghost">{job?.salary} LPA</Badge>
+                <Badge className='badge-royal pos-badge' variant="ghost">
+                   <Briefcase size={12} className="mr-1" /> {job?.position} Positions
+                </Badge>
+                <Badge className='badge-royal type-badge' variant="ghost">
+                    {job?.jobType}
+                </Badge>
+                <Badge className='badge-royal salary-badge' variant="ghost">
+                   <IndianRupee size={12} className="mr-1" /> {job?.salary} LPA
+                </Badge>
             </div>
 
             {/* Action Buttons Section */}
             <div className='flex items-center gap-4 mt-6'>
                 <Button 
                     onClick={() => navigate(`/description/${job?._id}`)} 
-                    variant="outline" 
-                    className="details-btn-3d w-full"
+                    className="details-btn-royal w-full"
                 >
                     Details
                 </Button>
-                <Button className="save-btn-3d w-full">
-                    Save For Later
+                <Button className="save-btn-royal w-full">
+                    Save Later
                 </Button>
             </div>
         </div>

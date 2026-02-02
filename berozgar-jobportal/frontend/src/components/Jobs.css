@@ -1,5 +1,5 @@
 .jobs-page-wrapper {
-    background-color: #fdfaff;
+    background-color: transparent !important;
     min-height: 100vh;
     perspective: 2000px; /* Global perspective for the page */
 }

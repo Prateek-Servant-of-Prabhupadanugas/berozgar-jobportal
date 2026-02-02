@@ -1,0 +1,112 @@
+.royal-bg-container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: #020617;
+    perspective: 1200px;
+}
+
+/* --- 1. Background Wind Particles (Subtle) --- */
+.royal-particle {
+    position: absolute;
+    top: -50px;
+    background: radial-gradient(circle, #f59e0b 0%, transparent 100%);
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0;
+    z-index: -2; 
+    animation: particleDiagonal linear infinite;
+}
+
+@keyframes particleDiagonal {
+    0% { transform: translate(0, 0); opacity: 0; }
+    20% { opacity: 1; }
+    60% { opacity: 0.5; } 
+    80% { opacity: 1; }
+    100% { transform: translate(40vw, 80vh); opacity: 0; }
+}
+
+/* --- 2. The Cube Container & Movement --- */
+.cube-stream {
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: diagonalFall linear infinite;
+}
+
+.cube-3d {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: cubeRotate 5s infinite linear;
+}
+
+/* --- 3. Cube Face Styling --- */
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(134, 10, 243, 0.05);
+    border: 1.5px solid rgba(245, 158, 11, 0.6);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.front  { transform: rotateY(0deg) translateZ(12px); }
+.back   { transform: rotateY(180deg) translateZ(12px); }
+.right  { transform: rotateY(90deg) translateZ(12px); }
+.left   { transform: rotateY(-90deg) translateZ(12px); }
+.top    { transform: rotateX(90deg) translateZ(12px); }
+.bottom { transform: rotateX(-90deg) translateZ(12px); }
+
+/* --- 4. The Magic Wand Emitter Particles (Trailing) --- */
+.dropped-particle {
+    position: fixed;
+    width: 8px; 
+    height: 8px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.8) 0%, rgba(134, 10, 243, 0) 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1; 
+    opacity: 0;
+    will-change: transform, opacity;
+    filter: blur(1.5px);
+}
+
+.dropped-particle.spawning {
+    animation: dropFade 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* --- 5. Core Animations --- */
+
+@keyframes diagonalFall {
+    0% { transform: translate(0, 0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        /* Adjusted to 110vh to ensure it clears the bottom of the screen */
+        transform: translate(80vw, 110vh); 
+        opacity: 0;
+    }
+}
+
+@keyframes dropFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    30% {
+        opacity: 1; /* Peak brightness as per your requirement */
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        /* Drift up and left (-10px) to counteract the down-right fall of the cube */
+        transform: scale(1.8) translateY(-10px) translateX(-10px); 
+    }
+}
+
+@keyframes cubeRotate {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}

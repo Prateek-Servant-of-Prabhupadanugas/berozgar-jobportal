@@ -7,6 +7,7 @@ import { APPLICATION_API_END_POINT, JOB_API_END_POINT } from '@/utils/constant';
 import { setSingleJob } from '@/redux/jobSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
+import { Briefcase, MapPin, IndianRupee, Users, Calendar, Sparkles } from 'lucide-react';
 import './JobDescription.css';
 
 const JobDescription = () => {
@@ -53,58 +54,80 @@ const JobDescription = () => {
         <div className='description-root-container'>
             <div className='max-w-7xl mx-auto my-10 px-4'>
                 {/* Header Section Card */}
-                <div className='desc-header-card-3d'>
+                <div className='desc-header-card-obsidian'>
                     <div className='flex flex-col md:flex-row items-center justify-between gap-6'>
                         <div>
-                            <h1 className='desc-main-title'>{singleJob?.title}</h1>
+                            <div className="flex items-center gap-2 mb-2">
+                                <Sparkles size={16} className="text-[#f59e0b]" />
+                                <span className="text-[#f59e0b] text-xs font-bold uppercase tracking-widest">Premium Listing</span>
+                            </div>
+                            <h1 className='desc-main-title text-white'>{singleJob?.title}</h1>
                             <div className='flex flex-wrap items-center gap-3 mt-4'>
-                                <Badge className='desc-badge pos' variant="ghost">{singleJob?.position} Positions</Badge>
-                                <Badge className='desc-badge type' variant="ghost">{singleJob?.jobType}</Badge>
-                                <Badge className='desc-badge salary' variant="ghost">{singleJob?.salary}LPA</Badge>
+                                <Badge className='desc-badge-royal pos' variant="ghost">{singleJob?.position} Positions</Badge>
+                                <Badge className='desc-badge-royal type' variant="ghost">{singleJob?.jobType}</Badge>
+                                <Badge className='desc-badge-royal salary' variant="ghost">{singleJob?.salary} LPA</Badge>
                             </div>
                         </div>
                         <Button
                             onClick={isApplied ? null : applyJobHandler}
                             disabled={isApplied}
-                            className={`apply-btn-3d ${isApplied ? 'applied-state' : 'active-state'}`}>
-                            {isApplied ? 'Already Applied' : 'Apply Now'}
+                            className={`apply-btn-royal ${isApplied ? 'applied-state' : 'active-state'}`}>
+                            {isApplied ? 'Application Sent' : 'Confirm & Apply'}
                         </Button>
                     </div>
                 </div>
 
                 {/* Information Grid */}
-                <div className='details-glass-container mt-10'>
-                    <h1 className='details-heading'>Job Overview</h1>
+                <div className='details-obsidian-container mt-10'>
+                    <h1 className='details-heading-royal text-white'>Executive Job Overview</h1>
                     <div className='details-grid'>
-                        <div className='detail-item-3d'>
-                            <span className='detail-label'>Role</span>
-                            <span className='detail-value'>{singleJob?.title}</span>
+                        <div className='detail-item-royal'>
+                            <div className="flex items-center gap-2">
+                                <Briefcase size={16} className="text-[#f59e0b]" />
+                                <span className='detail-label-royal'>Role</span>
+                            </div>
+                            <span className='detail-value-royal text-slate-200'>{singleJob?.title}</span>
                         </div>
-                        <div className='detail-item-3d'>
-                            <span className='detail-label'>Location</span>
-                            <span className='detail-value'>{singleJob?.location}</span>
+                        <div className='detail-item-royal'>
+                            <div className="flex items-center gap-2">
+                                <MapPin size={16} className="text-[#f59e0b]" />
+                                <span className='detail-label-royal'>Location</span>
+                            </div>
+                            <span className='detail-value-royal text-slate-200'>{singleJob?.location}</span>
                         </div>
-                        <div className='detail-item-3d'>
-                            <span className='detail-label'>Experience</span>
-                            <span className='detail-value'>{singleJob?.experience} Years</span>
+                        <div className='detail-item-royal'>
+                            <div className="flex items-center gap-2">
+                                <Sparkles size={16} className="text-[#f59e0b]" />
+                                <span className='detail-label-royal'>Experience</span>
+                            </div>
+                            <span className='detail-value-royal text-slate-200'>{singleJob?.experience} Years</span>
                         </div>
-                        <div className='detail-item-3d'>
-                            <span className='detail-label'>Salary</span>
-                            <span className='detail-value'>{singleJob?.salary} LPA</span>
+                        <div className='detail-item-royal'>
+                            <div className="flex items-center gap-2">
+                                <IndianRupee size={16} className="text-[#f59e0b]" />
+                                <span className='detail-label-royal'>Package</span>
+                            </div>
+                            <span className='detail-value-royal text-slate-200'>{singleJob?.salary} LPA</span>
                         </div>
-                        <div className='detail-item-3d'>
-                            <span className='detail-label'>Applicants</span>
-                            <span className='detail-value'>{singleJob?.applications?.length} Applied</span>
+                        <div className='detail-item-royal'>
+                            <div className="flex items-center gap-2">
+                                <Users size={16} className="text-[#f59e0b]" />
+                                <span className='detail-label-royal'>Applicants</span>
+                            </div>
+                            <span className='detail-value-royal text-slate-200'>{singleJob?.applications?.length} Candidates</span>
                         </div>
-                        <div className='detail-item-3d'>
-                            <span className='detail-label'>Posted Date</span>
-                            <span className='detail-value'>{singleJob?.createdAt?.split("T")[0]}</span>
+                        <div className='detail-item-royal'>
+                            <div className="flex items-center gap-2">
+                                <Calendar size={16} className="text-[#f59e0b]" />
+                                <span className='detail-label-royal'>Posted Date</span>
+                            </div>
+                            <span className='detail-value-royal text-slate-200'>{singleJob?.createdAt?.split("T")[0]}</span>
                         </div>
                     </div>
 
-                    <div className='description-section mt-8'>
-                        <h2 className='detail-label mb-3'>Detailed Description</h2>
-                        <p className='detail-text-p'>{singleJob?.description}</p>
+                    <div className='description-section-royal mt-12'>
+                        <h2 className='detail-label-royal mb-4 border-l-4 border-[#f59e0b] pl-3'>Detailed Mandate</h2>
+                        <p className='detail-text-royal text-slate-400'>{singleJob?.description}</p>
                     </div>
                 </div>
             </div>

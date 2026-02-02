@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '
 import { Label } from './ui/label'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
-import { Loader2 } from 'lucide-react'
+import { Loader2, User, Mail, Phone, Book, Code, FileUp } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { USER_API_END_POINT } from '@/utils/constant'
@@ -48,112 +48,67 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         try {
             setLoading(true);
             const res = await axios.post(`${USER_API_END_POINT}/profile/update`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
+                headers: { 'Content-Type': 'multipart/form-data' },
                 withCredentials: true
             });
             if (res.data.success) {
                 dispatch(setUser(res.data.user));
                 toast.success(res.data.message);
+                setOpen(false);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.response?.data?.message || "Update failed");
         } finally {
             setLoading(false);
         }
-        setOpen(false);
     }
 
     return (
         <Dialog open={open}>
             <DialogContent 
-                className="dialog-3d-content sm:max-w-[425px]" 
+                className="dialog-obsidian-content sm:max-w-[450px]" 
                 onInteractOutside={() => setOpen(false)}
             >
                 <DialogHeader>
-                    <DialogTitle className="dialog-title-3d">Edit Your Profile</DialogTitle>
+                    <DialogTitle className="dialog-title-royal text-white">Update Identity</DialogTitle>
                 </DialogHeader>
-                <form onSubmit={submitHandler} className="form-3d-wrapper">
-                    <div className='grid gap-5 py-4'>
-                        <div className='input-group-3d'>
-                            <Label htmlFor="fullname" className="label-3d">Full Name</Label>
-                            <Input
-                                id="fullname"
-                                name="fullname"
-                                type="text"
-                                value={input.fullname}
-                                onChange={changeEventHandler}
-                                className="input-3d"
-                            />
+                <form onSubmit={submitHandler} className="mt-4">
+                    <div className='grid gap-4 py-2'>
+                        <div className='input-group-royal'>
+                            <Label htmlFor="fullname" className="label-royal"><User size={14} /> Full Name</Label>
+                            <Input id="fullname" name="fullname" value={input.fullname} onChange={changeEventHandler} className="input-royal" />
                         </div>
-                        <div className='input-group-3d'>
-                            <Label htmlFor="email" className="label-3d">Email</Label>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="email"
-                                value={input.email}
-                                onChange={changeEventHandler}
-                                className="input-3d"
-                            />
+                        <div className='input-group-royal'>
+                            <Label htmlFor="email" className="label-royal"><Mail size={14} /> Email</Label>
+                            <Input id="email" name="email" type="email" value={input.email} onChange={changeEventHandler} className="input-royal" />
                         </div>
-                        <div className='input-group-3d'>
-                            <Label htmlFor="phoneNumber" className="label-3d">Phone Number</Label>
-                            <Input
-                                id="phoneNumber"
-                                name="phoneNumber"
-                                value={input.phoneNumber}
-                                onChange={changeEventHandler}
-                                className="input-3d"
-                            />
+                        <div className='flex gap-4'>
+                            <div className='input-group-royal flex-1'>
+                                <Label htmlFor="phoneNumber" className="label-royal"><Phone size={14} /> Phone</Label>
+                                <Input id="phoneNumber" name="phoneNumber" value={input.phoneNumber} onChange={changeEventHandler} className="input-royal" />
+                            </div>
+                            <div className='input-group-royal flex-1'>
+                                <Label htmlFor="skills" className="label-royal"><Code size={14} /> Skills</Label>
+                                <Input id="skills" name="skills" value={input.skills} onChange={changeEventHandler} className="input-royal" />
+                            </div>
                         </div>
-                        <div className='input-group-3d'>
-                            <Label htmlFor="bio" className="label-3d">Bio</Label>
-                            <Input
-                                id="bio"
-                                name="bio"
-                                value={input.bio}
-                                onChange={changeEventHandler}
-                                className="input-3d"
-                            />
+                        <div className='input-group-royal'>
+                            <Label htmlFor="bio" className="label-royal"><Book size={14} /> Bio</Label>
+                            <Input id="bio" name="bio" value={input.bio} onChange={changeEventHandler} className="input-royal" />
                         </div>
-                        <div className='input-group-3d'>
-                            <Label htmlFor="skills" className="label-3d">Skills (comma separated)</Label>
-                            <Input
-                                id="skills"
-                                name="skills"
-                                value={input.skills}
-                                onChange={changeEventHandler}
-                                className="input-3d"
-                            />
-                        </div>
-                        <div className='input-group-3d'>
-                            <Label htmlFor="file" className="label-3d">Resume (PDF)</Label>
-                            <Input
-                                id="file"
-                                name="file"
-                                type="file"
-                                accept="application/pdf"
-                                onChange={fileChangeHandler}
-                                className="file-input-3d"
-                            />
+                        <div className='input-group-royal'>
+                            <Label htmlFor="file" className="label-royal"><FileUp size={14} /> Resume (PDF)</Label>
+                            <Input id="file" name="file" type="file" accept="application/pdf" onChange={fileChangeHandler} className="file-input-royal" />
                         </div>
                     </div>
-                    <DialogFooter>
-                        {
-                            loading ? (
-                                <Button className="update-btn-3d loading-state w-full" disabled>
-                                    <Loader2 className='mr-2 h-4 w-4 animate-spin' /> 
-                                    Syncing Data...
-                                </Button>
-                            ) : (
-                                <Button type="submit" className="update-btn-3d w-full">
-                                    Save Changes
-                                </Button>
-                            )
-                        }
+                    <DialogFooter className="mt-6">
+                        {loading ? (
+                            <Button className="update-btn-royal loading-state w-full" disabled>
+                                <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Finalizing...
+                            </Button>
+                        ) : (
+                            <Button type="submit" className="update-btn-royal w-full">Save Profile Changes</Button>
+                        )}
                     </DialogFooter>
                 </form>
             </DialogContent>

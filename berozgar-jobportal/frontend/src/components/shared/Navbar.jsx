@@ -26,7 +26,6 @@ const Navbar = () => {
                 toast.success(res.data.message);
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.response?.data?.message || "Logout failed");
         }
     }
@@ -35,14 +34,14 @@ const Navbar = () => {
         <>
             {user && user.role === 'recruiter' ? (
                 <>
-                    <li className="nav-item"><Link to="/admin/companies">Companies</Link></li>
-                    <li className="nav-item"><Link to="/admin/jobs">Jobs</Link></li>
+                    <li className="nav-item-royal"><Link to="/admin/companies">Companies</Link></li>
+                    <li className="nav-item-royal"><Link to="/admin/jobs">Jobs</Link></li>
                 </>
             ) : (
                 <>
-                    <li className="nav-item"><Link to="/">Home</Link></li>
-                    <li className="nav-item"><Link to="/jobs">Jobs</Link></li>
-                    <li className="nav-item"><Link to="/browse">Browse</Link></li>
+                    <li className="nav-item-royal"><Link to="/">Home</Link></li>
+                    <li className="nav-item-royal"><Link to="/jobs">Jobs</Link></li>
+                    <li className="nav-item-royal"><Link to="/browse">Browse</Link></li>
                 </>
             )}
         </>
@@ -50,73 +49,73 @@ const Navbar = () => {
 
     return (
         <>
-            {/* 3D Depth Overlay */}
+            {/* Dark overlay for mobile drawer */}
             <div className={`menu-overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)} />
 
-            <nav className="navbar-container">
-                <div className="navbar-glass-wrapper mx-auto max-w-7xl h-16 flex items-center justify-between px-6">
+            <nav className="navbar-container px-4">
+                <div className="navbar-glass-wrapper mx-auto max-w-7xl h-20 flex items-center justify-between px-8 mt-4">
                     
-                    {/* Logo Area */}
-                    <div className="logo-3d z-50">
+                    {/* Brand Logo */}
+                    <div className="logo-3d">
                         <Link to="/">
-                            <h1 className='text-2xl font-bold tracking-tighter'>
-                                Be<span className='text-[#860af3]'>Rozgaars</span>
+                            <h1 className='text-2xl font-black tracking-tighter text-white'>
+                                Be<span className='text-amber-500 italic'>Rozgaars</span>
                             </h1>
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation */}
-                    <div className='flex items-center gap-12'>
-                        <ul className='hidden md:flex font-medium items-center gap-6 nav-links'>
+                    {/* Navigation Actions */}
+                    <div className='flex items-center gap-10'>
+                        <ul className='hidden md:flex font-semibold items-center gap-10 nav-links-royal'>
                             <NavLinks />
                         </ul>
 
                         <div className="flex items-center gap-4">
-                            {/* Desktop Auth Section */}
-                            <div className='hidden md:block'>
-                                {!user ? (
-                                    <div className='flex items-center gap-3'>
-                                        <Link to="/login"><Button variant="ghost" className="hover-3d-light">Login</Button></Link>
-                                        <Link to="/signup"><Button className="btn-3d-purple">Signup</Button></Link>
-                                    </div>
-                                ) : (
-                                    <Popover>
-                                        <PopoverTrigger asChild>
-                                            <div className="avatar-3d-ring">
-                                                <Avatar className="cursor-pointer border-2 border-white">
-                                                    <AvatarImage src={user?.profile?.profilePhoto} alt="profile" />
-                                                </Avatar>
+                            {!user ? (
+                                <div className='hidden md:flex items-center gap-4'>
+                                    <Link to="/login">
+                                        <Button variant="ghost" className="text-white/80 hover:text-white hover:bg-white/5 transition-all">Login</Button>
+                                    </Link>
+                                    <Link to="/signup">
+                                        <Button className="btn-royal-amber px-6">Join Now</Button>
+                                    </Link>
+                                </div>
+                            ) : (
+                                <Popover>
+                                    <PopoverTrigger asChild>
+                                        <div className="avatar-royal-wrapper cursor-pointer">
+                                            <Avatar className="border-2 border-amber-500/30 hover:border-amber-500 transition-all shadow-lg">
+                                                <AvatarImage src={user?.profile?.profilePhoto} alt="profile" />
+                                            </Avatar>
+                                        </div>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="popover-royal-glass w-80 mt-2">
+                                        <div className='flex gap-4 p-2 items-center border-b border-white/10 pb-4'>
+                                            <Avatar className="border-2 border-amber-500/20">
+                                                <AvatarImage src={user?.profile?.profilePhoto} />
+                                            </Avatar>
+                                            <div className='overflow-hidden'>
+                                                <h4 className='font-bold text-white truncate'>{user?.fullname}</h4>
+                                                <p className='text-[10px] text-amber-400 font-bold uppercase tracking-widest'>{user?.role}</p>
                                             </div>
-                                        </PopoverTrigger>
-                                        <PopoverContent className="popover-3d-glass w-80">
-                                            <div className='flex gap-4 p-2'>
-                                                <Avatar className="shadow-md">
-                                                    <AvatarImage src={user?.profile?.profilePhoto} />
-                                                </Avatar>
-                                                <div>
-                                                    <h4 className='font-bold text-gray-800'>{user?.fullname}</h4>
-                                                    <p className='text-xs text-gray-500 line-clamp-1'>{user?.profile?.bio}</p>
-                                                </div>
-                                            </div>
-                                            <hr className="my-3 border-gray-100" />
-                                            <div className='flex flex-col gap-1'>
-                                                {user.role === 'student' && (
-                                                    <Button variant='ghost' className="justify-start gap-3 hover:bg-blue-50" asChild>
-                                                        <Link to="/profile"><User2 size={18} /> View Profile</Link>
-                                                    </Button>
-                                                )}
-                                                <Button onClick={logoutHandler} variant='ghost' className="justify-start gap-3 text-red-500 hover:bg-red-50">
-                                                    <LogOut size={18} /> Logout
+                                        </div>
+                                        <div className='flex flex-col gap-1 mt-4'>
+                                            {user.role === 'student' && (
+                                                <Button variant='ghost' className="justify-start gap-3 text-white/70 hover:text-white hover:bg-white/5 group" asChild>
+                                                    <Link to="/profile"><User2 size={18} className="group-hover:text-amber-500" /> My Profile</Link>
                                                 </Button>
-                                            </div>
-                                        </PopoverContent>
-                                    </Popover>
-                                )}
-                            </div>
+                                            )}
+                                            <Button onClick={logoutHandler} variant='ghost' className="justify-start gap-3 text-red-400 hover:bg-red-500/10 hover:text-red-300">
+                                                <LogOut size={18} /> Logout
+                                            </Button>
+                                        </div>
+                                    </PopoverContent>
+                                </Popover>
+                            )}
 
-                            {/* Mobile Hamburger Toggle */}
+                            {/* Mobile Menu Icon */}
                             <button 
-                                className="md:hidden z-50 p-2 text-gray-700 bg-white/50 rounded-xl shadow-inner active:scale-90 transition-all"
+                                className="md:hidden p-2 text-white bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                             >
                                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -125,32 +124,18 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* 3D Mobile Sidebar (Sliding Tray) */}
-                <div className={`mobile-sidebar-3d ${isMenuOpen ? 'open' : ''}`}>
-                    <ul className="flex flex-col gap-3 p-6 pt-12">
+                {/* Mobile Sidebar */}
+                <div className={`mobile-sidebar-royal ${isMenuOpen ? 'open' : ''}`}>
+                    <ul className="flex flex-col gap-6 p-10">
                         <NavLinks />
-                        <hr className="border-gray-200/50 my-2" />
+                        <div className="h-[1px] bg-white/10 w-full my-2" />
                         {!user ? (
                             <div className="flex flex-col gap-4">
-                                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                                    <Button variant="outline" className="w-full h-12 rounded-xl">Login</Button>
-                                </Link>
-                                <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
-                                    <Button className="btn-3d-purple w-full h-12 rounded-xl">Signup</Button>
-                                </Link>
+                                <Link to="/login" onClick={() => setIsMenuOpen(false)}><Button className="w-full bg-white/5 border border-white/10 text-white">Login</Button></Link>
+                                <Link to="/signup" onClick={() => setIsMenuOpen(false)}><Button className="btn-royal-amber w-full">Signup</Button></Link>
                             </div>
                         ) : (
-                            <div className="flex flex-col gap-2">
-                                <p className="px-4 text-xs font-bold text-gray-400 uppercase tracking-widest">User Menu</p>
-                                {user.role === 'student' && (
-                                    <Link to="/profile" onClick={() => setIsMenuOpen(false)}>
-                                        <Button variant="ghost" className="w-full justify-start gap-3 h-12"><User2 size={18}/> Profile</Button>
-                                    </Link>
-                                )}
-                                <Button onClick={logoutHandler} variant="ghost" className="w-full justify-start gap-3 h-12 text-red-500">
-                                    <LogOut size={18}/> Logout
-                                </Button>
-                            </div>
+                            <Button onClick={logoutHandler} variant="ghost" className="justify-start gap-3 text-red-400 bg-red-500/5"><LogOut size={18}/> Logout</Button>
                         )}
                     </ul>
                 </div>
@@ -159,4 +144,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar;

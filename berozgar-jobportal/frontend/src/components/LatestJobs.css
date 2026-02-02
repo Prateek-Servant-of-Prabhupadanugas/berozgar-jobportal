@@ -1,96 +1,115 @@
-/* --- Section Container --- */
+/* --- Royal Section Container --- */
 .latest-jobs-section {
-    perspective: 1500px;
+    perspective: 2000px;
 }
 
-/* --- Heading Styling --- */
-.section-header-3d {
-    margin-bottom: 3rem;
-    transform: translateZ(30px);
+/* --- Header Styling --- */
+.section-header-royal {
+    margin-bottom: 4rem;
+    transform: translateZ(50px);
 }
 
-.main-heading {
-    color: #2E073F; /* Your Dark Purple */
-    letter-spacing: -0.02em;
+.royal-subtitle {
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    font-weight: 800;
 }
 
-.text-purplish-gradient {
-    background: linear-gradient(to right, #7A1CAC, #AD49E1);
+.main-heading-royal {
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.text-amber-gradient {
+    background: linear-gradient(to right, #f59e0b, #AD49E1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.header-accent-line {
-    height: 5px;
-    width: 80px;
-    background: #AD49E1;
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(173, 73, 225, 0.3);
+.header-accent-line-royal {
+    height: 4px;
+    width: 100px;
+    background: linear-gradient(90deg, #f59e0b, transparent);
+    margin-top: 15px;
+    border-radius: 2px;
 }
 
-/* --- 3D Grid Layout --- */
-.latest-grid-3d {
+/* --- Royal 3D Grid --- */
+.latest-grid-royal {
     display: grid;
-    /* Responsive Grid Logic */
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
     transform-style: preserve-3d;
 }
 
-.grid-item-perspective {
-    transition: transform 0.5s ease;
+.grid-item-perspective-royal {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Add a staggered entrance feel if you want */
-.grid-item-perspective:nth-child(odd) {
-    transform: rotateY(-2deg);
+/* Staggered "Curved" 3D Effect */
+.grid-item-perspective-royal:nth-child(1),
+.grid-item-perspective-royal:nth-child(4) {
+    transform: rotateY(10deg) translateZ(0);
 }
 
-.grid-item-perspective:nth-child(even) {
-    transform: rotateY(2deg);
+.grid-item-perspective-royal:nth-child(2),
+.grid-item-perspective-royal:nth-child(5) {
+    transform: translateZ(30px); /* Center cards pop forward */
 }
 
-.grid-item-perspective:hover {
-    transform: rotateY(0deg) rotateX(0deg) scale(1.05);
-    z-index: 10;
+.grid-item-perspective-royal:nth-child(3),
+.grid-item-perspective-royal:nth-child(6) {
+    transform: rotateY(-10deg) translateZ(0);
 }
 
-/* --- Empty State --- */
-.empty-jobs-card {
+.grid-item-perspective-royal:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.08) translateZ(60px);
+    z-index: 50;
+}
+
+/* --- Empty State Obsidian Glass --- */
+.empty-jobs-card-royal {
     grid-column: span 3;
-    text-align: center;
-    padding: 4rem;
-    background: rgba(235, 211, 248, 0.2);
-    border: 2px dashed #7A1CAC;
-    border-radius: 20px;
-    color: #7A1CAC;
-    font-weight: 600;
+    padding: 1px; /* Border-gradient trick */
+    background: linear-gradient(45deg, rgba(134, 10, 243, 0.3), rgba(245, 158, 11, 0.3));
+    border-radius: 30px;
 }
 
-/* --- Mobile Responsiveness --- */
+.empty-jobs-card-royal .glass-inner {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 5rem;
+    border-radius: 29px;
+    color: #94a3b8;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
-    .latest-grid-3d {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    .latest-grid-royal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-item-perspective-royal {
+        transform: none !important;
     }
 }
 
 @media (max-width: 768px) {
-    .latest-grid-3d {
-        grid-template-columns: 1fr; /* 1 column for mobile */
-        gap: 1.5rem;
+    .latest-grid-royal {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
-    
-    .main-heading {
-        font-size: 2rem;
+    .main-heading-royal {
+        font-size: 2.5rem;
         text-align: center;
     }
-    
-    .header-accent-line {
-        margin: 10px auto;
-    }
-
-    .grid-item-perspective {
-        transform: none !important; /* Remove rotation on mobile for better UX */
+    .section-header-royal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

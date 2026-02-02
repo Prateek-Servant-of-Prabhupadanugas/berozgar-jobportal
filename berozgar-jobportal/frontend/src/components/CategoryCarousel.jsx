@@ -33,20 +33,19 @@ const CategoryCarousel = () => {
                                 <div className="category-card-3d">
                                     <Button 
                                         onClick={() => searchJobHandler(cat)} 
-                                        variant="outline" 
-                                        className="category-btn-3d"
+                                        className="category-btn-royal"
                                     >
                                         <span className="btn-content">{cat}</span>
                                     </Button>
-                                    <div className="card-shadow-3d"></div>
+                                    {/* The glow replaces the old dark shadow */}
+                                    <div className="card-glow-royal"></div>
                                 </div>
                             </CarouselItem>
                         ))
                     }
                 </CarouselContent>
-                {/* 3D Styled Navigation Arrows */}
-                <CarouselPrevious className="nav-btn-3d left-btn" />
-                <CarouselNext className="nav-btn-3d right-btn" />
+                <CarouselPrevious className="nav-btn-royal left-btn" />
+                <CarouselNext className="nav-btn-royal right-btn" />
             </Carousel>
         </div>
     )

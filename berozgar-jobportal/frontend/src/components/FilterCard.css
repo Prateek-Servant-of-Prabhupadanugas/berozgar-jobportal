@@ -1,105 +1,102 @@
-/* --- Widget Container with 3D Tilt --- */
-.filter-card-3d-wrapper {
-    perspective: 1000px;
+/* --- Royal Obsidian Container --- */
+.filter-card-obsidian-wrapper {
+    perspective: 1500px;
     width: 100%;
 }
 
-.filter-card-content {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(122, 28, 172, 0.2);
-    border-radius: 24px;
-    padding: 1.5rem;
-    box-shadow: 
-        10px 10px 30px rgba(46, 7, 63, 0.05),
-        -5px -5px 15px rgba(255, 255, 255, 0.8);
-    transform: rotateY(2deg) rotateX(1deg); /* Subtle 3D Perspective */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+.filter-card-glass-content {
+    background: rgba(15, 23, 42, 0.4); /* Deep Obsidian Glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(134, 10, 243, 0.3); /* Purple Glow */
+    border-radius: 28px;
+    padding: 2rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: rotateY(5deg); /* Professional 3D Angle */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.filter-card-content:hover {
-    transform: rotateY(0deg) rotateX(0deg) translateY(-5px);
-    box-shadow: 20px 20px 40px rgba(122, 28, 172, 0.1);
+.filter-card-glass-content:hover {
+    transform: rotateY(0deg) translateY(-5px);
+    border-color: rgba(245, 158, 11, 0.4); /* Amber on Hover */
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6);
 }
 
 /* --- Typography & Accents --- */
 .filter-main-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    color: #2E073F; /* Your Primary Dark Purple */
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 }
 
-.filter-divider {
+.filter-divider-royal {
     height: 3px;
-    width: 40px;
-    background: #AD49E1; /* Action Purple */
-    margin: 12px 0 20px 0;
+    width: 50px;
+    background: linear-gradient(90deg, #f59e0b, transparent);
+    margin: 10px 0 25px 0;
     border-radius: 2px;
 }
 
-.filter-group-section {
-    margin-bottom: 1.5rem;
+.filter-group-title-royal {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #f59e0b; /* Amber Gold Section Header */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    opacity: 0.9;
 }
 
-.filter-group-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #7A1CAC; /* Secondary Purple */
-    margin-bottom: 0.75rem;
-    padding-left: 4px;
-}
-
-/* --- Tactile 3D Radio Options --- */
-.filter-option-item {
+/* --- Interactive Filter Items --- */
+.filter-option-item-royal {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 8px 12px;
-    margin: 4px 0;
-    border-radius: 12px;
-    transition: all 0.2s ease;
+    padding: 10px 14px;
+    margin: 6px 0;
+    border-radius: 14px;
+    transition: all 0.3s ease;
     cursor: pointer;
+    border: 1px solid transparent;
 }
 
-.filter-option-item:hover {
-    background: rgba(173, 73, 225, 0.08);
-    transform: translateX(5px) translateZ(10px);
+.filter-option-item-royal:hover {
+    background: rgba(134, 10, 243, 0.1);
+    transform: translateX(8px);
+    border-color: rgba(134, 10, 243, 0.2);
 }
 
-/* --- Custom 3D Radio Button Style --- */
-.custom-radio-3d {
-    border: 2px solid #7A1CAC !important;
-    background: white !important;
-    box-shadow: 0 3px 0px #2E073F !important; /* Bottom depth */
-    transition: all 0.1s ease !important;
+/* --- Custom Royal Radio Button --- */
+.custom-radio-royal {
+    border: 2px solid rgba(134, 10, 243, 0.5) !important;
+    background: rgba(15, 23, 42, 0.8) !important;
+    transition: all 0.2s ease !important;
+    width: 18px !important;
+    height: 18px !important;
 }
 
-.custom-radio-3d[data-state="checked"] {
-    background-color: #AD49E1 !important;
-    transform: translateY(2px);
-    box-shadow: 0 0px 0px #2E073F !important;
+.custom-radio-royal[data-state="checked"] {
+    background-color: #f59e0b !important; /* Amber Fill when selected */
+    border-color: #f59e0b !important;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4) !important;
 }
 
-.filter-label-3d {
+.filter-label-royal {
     font-weight: 500;
-    color: #475569;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
-/* --- Mobile Responsiveness --- */
+.filter-option-item-royal:hover .filter-label-royal {
+    color: white;
+}
+
+/* --- Mobile Fixes --- */
 @media (max-width: 768px) {
-    .filter-card-content {
-        transform: none !important; /* Flatten for easier mobile use */
-        display: flex;
-        flex-direction: column;
-        border-radius: 18px;
-    }
-    
-    .filter-group-section {
-        display: inline-block;
-        width: 100%;
-        margin-bottom: 1rem;
+    .filter-card-glass-content {
+        transform: none !important;
+        border-radius: 20px;
+        padding: 1.5rem;
     }
 }

@@ -1,137 +1,116 @@
 .cert-section-container {
-    padding: 4rem 2rem;
-    background: #fdfaff;
+    padding: 6rem 2rem;
+    background: transparent; /* Allows RoyalBackground to show */
     min-height: 100vh;
 }
 
 .cert-main-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 900;
-    color: #2E073F;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
+    margin-bottom: 0.5rem;
 }
 
-.cert-subtitle {
-    color: #7A1CAC;
-    font-weight: 500;
-}
-
-/* --- 3D Grid Layout --- */
+/* --- Obsidian 3D Grid --- */
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    perspective: 1000px; /* Critical for 3D */
+    perspective: 2000px;
 }
 
-.cert-card-3d {
-    background: white;
-    padding: 2rem;
-    border-radius: 24px;
-    border: 1px solid rgba(173, 73, 225, 0.1);
-    box-shadow: 0 15px 35px rgba(46, 7, 63, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.cert-card-obsidian {
+    background: rgba(15, 23, 42, 0.5); /* Deep Glass */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 2.5rem;
+    border-radius: 32px;
+    border: 1px solid rgba(134, 10, 243, 0.3); /* Purple Glow Edge */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     transform-style: preserve-3d;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
-.cert-card-3d:hover {
-    transform: translateY(-15px) rotateY(5deg);
-    box-shadow: -10px 25px 50px rgba(122, 28, 172, 0.2);
-    border-color: #AD49E1;
+.cert-card-obsidian:hover {
+    transform: translateY(-15px) rotateX(5deg) rotateY(-2deg);
+    border-color: #f59e0b; /* Amber Glow on hover */
+    box-shadow: 0 30px 60px rgba(245, 158, 11, 0.15);
 }
 
-.card-icon-wrapper {
-    background: #f3e8ff;
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
+.card-icon-wrapper-royal {
+    background: rgba(245, 158, 11, 0.1);
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #7A1CAC;
+    color: #f59e0b; /* Amber Gold Icon */
     margin-bottom: 1.5rem;
-    transform: translateZ(20px); /* Lifts icon off the card */
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    transform: translateZ(30px);
 }
 
 .card-category-title {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 800;
-    color: #2E073F;
-    margin-bottom: 1rem;
-}
-
-.card-list {
-    list-style: none;
-    padding: 0;
-    flex-grow: 1;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.5px;
 }
 
 .card-list-item {
-    font-size: 0.9rem;
-    color: #555;
-    padding: 8px 0;
+    font-size: 0.95rem;
+    padding: 10px 0;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.bullet {
-    width: 6px;
-    height: 6px;
-    background: #AD49E1;
+.bullet-royal {
+    width: 8px;
+    height: 8px;
+    background: #f59e0b;
     border-radius: 50%;
+    box-shadow: 0 0 10px #f59e0b;
 }
 
-/* --- Button & Banner --- */
-.enroll-btn-3d {
+/* --- The Royal Enroll Button --- */
+.enroll-btn-royal {
     width: 100%;
-    margin-top: 1.5rem;
-    padding: 12px;
-    border-radius: 12px;
+    margin-top: 2rem;
+    padding: 14px;
+    border-radius: 16px;
     background: #7A1CAC;
     color: white;
     font-weight: 700;
     border: none;
+    cursor: pointer;
     box-shadow: 0 4px 0 #2E073F;
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
 }
 
-.enroll-btn-3d:active {
+.enroll-btn-royal:hover {
+    background: #AD49E1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #2E073F;
+}
+
+.enroll-btn-royal:active {
     transform: translateY(4px);
     box-shadow: 0 0px 0 #2E073F;
 }
 
-.specialty-banner-3d {
-    max-width: 1200px;
-    margin: 4rem auto 0;
-    background: linear-gradient(90deg, #2E073F, #7A1CAC);
-    padding: 2rem;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    box-shadow: 0 20px 40px rgba(46, 7, 63, 0.3);
-}
-
-.posh-badge {
-    background: #AD49E1;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 800;
-    font-size: 0.8rem;
-    border: 2px solid white;
-}
-
-/* --- Mobile Fixes --- */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .specialty-banner-3d {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-    }
+    .cert-main-title { font-size: 2.2rem; }
+    .cert-card-obsidian { transform: none !important; }
 }

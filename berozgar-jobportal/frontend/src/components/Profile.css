@@ -1,134 +1,144 @@
-.profile-page-root {
-    background-color: #fdfaff;
+.profile-root-obsidian {
+    background: transparent;
     min-height: 100vh;
-    padding-bottom: 50px;
 }
 
 /* --- Main Profile Card --- */
-.profile-container {
-    background: white;
-    border-radius: 24px;
-    border: 1px solid rgba(122, 28, 172, 0.1);
-    box-shadow: 0 20px 40px rgba(46, 7, 63, 0.05);
+.profile-container-royal {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 35px;
+    border: 1px solid rgba(134, 10, 243, 0.3);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
     position: relative;
-    transform: translateZ(0);
 }
 
-.avatar-3d-wrapper {
-    transition: transform 0.4s ease;
+.avatar-royal-wrapper {
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.avatar-3d-wrapper:hover {
-    transform: scale(1.1) rotate(5deg);
+.avatar-royal-wrapper:hover {
+    transform: scale(1.05) rotate(-3deg);
 }
 
-.profile-name-3d {
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: #2E073F;
+.status-indicator-royal {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+    background: #10b981;
+    border: 3px solid #0f172a;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #10b981;
 }
 
-.profile-bio-3d {
-    color: #64748b;
-    margin-top: 4px;
+.profile-name-royal {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-/* --- Interactive Contact Pills --- */
-.contact-info-section {
+/* --- Contact Pills --- */
+.contact-info-royal {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
 
-.contact-pill {
+.contact-pill-royal {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #f8f5ff;
-    padding: 8px 16px;
-    border-radius: 99px;
-    font-size: 0.9rem;
-    color: #475569;
-    border: 1px solid transparent;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 20px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
 }
 
-.contact-pill:hover {
-    border-color: #AD49E1;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(122, 28, 172, 0.1);
+.contact-pill-royal:hover {
+    background: rgba(134, 10, 243, 0.1);
+    border-color: #f59e0b;
+    transform: translateY(-3px);
 }
 
-/* --- Skills & Badges --- */
-.section-subtitle {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #2E073F;
+/* --- Skills --- */
+.section-subtitle-royal {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.skill-badge-3d {
-    background: #7A1CAC !important;
+.skill-badge-royal {
+    background: rgba(134, 10, 243, 0.15) !important;
     color: white !important;
-    padding: 6px 14px !important;
-    border-radius: 8px !important;
-    transition: transform 0.2s ease !important;
+    border: 1px solid rgba(134, 10, 243, 0.4) !important;
+    padding: 8px 16px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    transition: all 0.3s ease !important;
 }
 
-.skill-badge-3d:hover {
-    transform: scale(1.1) translateZ(10px);
-    background: #AD49E1 !important;
+.skill-badge-royal:hover {
+    background: #7A1CAC !important;
+    border-color: #f59e0b !important;
+    transform: scale(1.1);
 }
 
 /* --- Resume Link --- */
-.resume-link-3d {
-    display: inline-block;
-    color: #3b82f6;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+.resume-link-royal {
+    display: inline-flex;
+    align-items: center;
+    color: #f59e0b;
+    font-weight: 700;
+    background: rgba(245, 158, 11, 0.1);
+    padding: 12px 24px;
+    border-radius: 14px;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    transition: all 0.3s ease;
 }
 
-.resume-link-3d:hover {
-    background: rgba(59, 130, 246, 0.1);
-    text-decoration: underline;
+.resume-link-royal:hover {
+    background: #f59e0b;
+    color: #0f172a;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
 }
 
-/* --- Edit Button 3D Push --- */
-.edit-btn-3d {
-    border-radius: 12px !important;
-    border: 2px solid #EBD3F8 !important;
-    transition: all 0.1s ease !important;
+/* --- Table Styles --- */
+.applied-jobs-title-royal {
+    font-size: 1.8rem;
+    font-weight: 900;
 }
 
-.edit-btn-3d:active {
-    transform: translateY(2px);
-}
-
-/* --- Applied Jobs Table 3D --- */
-.applied-jobs-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #2E073F;
-    margin-bottom: 20px;
-}
-
-.table-container-3d {
-    background: white;
-    border-radius: 20px;
+.table-container-royal {
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    border: 1px solid #f1f5f9;
+    padding: 10px;
 }
 
-/* --- Mobile Fixes --- */
-@media (max-width: 640px) {
-    .profile-container {
-        padding: 1.5rem;
-        margin: 10px;
-    }
-    .profile-name-3d {
-        font-size: 1.4rem;
-    }
+/* --- Edit Button --- */
+.edit-btn-royal {
+    border-radius: 16px !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(134, 10, 243, 0.5) !important;
+    transition: all 0.3s ease !important;
+}
+
+.edit-btn-royal:hover {
+    border-color: #f59e0b !important;
+    background: rgba(245, 158, 11, 0.1) !important;
+}
+
+@media (max-width: 768px) {
+    .profile-container-royal { padding: 2rem; margin: 20px; }
+    .profile-name-royal { font-size: 1.6rem; }
 }

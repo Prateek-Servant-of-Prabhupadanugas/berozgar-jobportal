@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BadgeCheck, ShieldCheck, Cpu, GraduationCap, CreditCard } from 'lucide-react';
+import { BadgeCheck, ShieldCheck, Cpu, GraduationCap, Sparkles } from 'lucide-react';
 import './Certifications.css';
 
 const Certifications = () => {
@@ -39,30 +39,32 @@ const Certifications = () => {
 
     return (
         <div className="cert-section-container">
-            <div className="text-center mb-12">
-                <h1 className="cert-main-title">Berozgar Academy & Services</h1>
-                <p className="cert-subtitle">Select a category to explore professional tution and career services</p>
+            <div className="text-center mb-16">
+                <div className="flex justify-center mb-4">
+                    <Sparkles className="text-[#f59e0b] animate-pulse" />
+                </div>
+                <h1 className="cert-main-title text-white">Berozgar Academy & Services</h1>
+                <p className="cert-subtitle text-[#f59e0b] opacity-80">Select a category to explore professional tuition and career services</p>
             </div>
 
             <div className="cert-grid">
                 {categories.map((cat) => (
-                    <div className="cert-card-3d" key={cat.id}>
-                        <div className="card-icon-wrapper">
+                    <div className="cert-card-obsidian" key={cat.id}>
+                        <div className="card-icon-wrapper-royal">
                             {cat.icon}
                         </div>
-                        <h3 className="card-category-title">{cat.title}</h3>
+                        <h3 className="card-category-title text-white">{cat.title}</h3>
                         <ul className="card-list">
                             {cat.items.map((item, i) => (
-                                <li key={i} className="card-list-item">
-                                    <span className="bullet"></span> {item}
+                                <li key={i} className="card-list-item text-slate-300">
+                                    <span className="bullet-royal"></span> {item}
                                 </li>
                             ))}
                         </ul>
-                        <div className="card-footer">
-                            {/* Connection to the service pages */}
+                        <div className="card-footer mt-auto">
                             <button 
                                 onClick={() => navigate(cat.path)} 
-                                className="enroll-btn-3d"
+                                className="enroll-btn-royal"
                             >
                                 View Details & Enroll
                             </button>
@@ -70,9 +72,6 @@ const Certifications = () => {
                     </div>
                 ))}
             </div>
-
-            {/* Sticky Specialty Highlight */}
-            
         </div>
     );
 };

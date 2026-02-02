@@ -1,138 +1,156 @@
 .hero-root-container {
     position: relative;
-    padding: 100px 20px;
+    padding: 120px 20px;
     overflow: hidden;
     perspective: 2000px;
-    background: #fdfaff;
+    background: transparent; /* Allows RoyalBackground to show */
 }
 
 /* --- Floating Background Orbs --- */
 .purple-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(100px);
     z-index: 0;
-    opacity: 0.4;
+    opacity: 0.15; /* Subtle enough to not distract from the cubes */
     animation: floatOrb 10s infinite alternate ease-in-out;
 }
 
 .orb-1 {
-    width: 300px;
-    height: 300px;
-    background: #7A1CAC;
+    width: 400px;
+    height: 400px;
+    background: #7A1CAC; /* Deep Royal Purple */
     top: -50px;
-    left: -50px;
+    left: 5%;
 }
 
 .orb-2 {
-    width: 400px;
-    height: 400px;
-    background: #AD49E1;
+    width: 500px;
+    height: 500px;
+    background: #f59e0b; /* Amber Gold Glow */
     bottom: -100px;
-    right: -50px;
+    right: 5%;
     animation-delay: -5s;
 }
 
 @keyframes floatOrb {
     from { transform: translate(0, 0) scale(1); }
-    to { transform: translate(50px, 100px) scale(1.2); }
+    to { transform: translate(30px, 60px) scale(1.15); }
 }
 
-/* --- Badge & Typography --- */
+/* --- Content Wrapper --- */
 .hero-content-wrapper {
     position: relative;
     z-index: 10;
-    transform: rotateX(2deg);
+    transform: rotateX(1deg); /* Slight 3D tilt */
 }
 
+/* --- Royal Badge --- */
 .badge-3d-container {
-    background: rgba(122, 28, 172, 0.1);
-    border: 1px solid rgba(122, 28, 172, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(245, 158, 11, 0.2);
     border-radius: 99px;
-    padding: 5px;
-    box-shadow: 0 10px 20px rgba(46, 7, 63, 0.05);
+    padding: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: fit-content;
 }
 
 .badge-3d-text {
-    background: white;
-    color: #F83002; /* Keeping your highlight color as a pop */
+    background: rgba(46, 7, 63, 0.6);
+    color: #f59e0b;
     display: block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 0 10px rgba(245, 158, 11, 0.1);
 }
 
+/* --- Typography --- */
 .hero-main-title {
-    color: #2E073F;
+    color: #ffffff;
     line-height: 1.1;
-    letter-spacing: -0.03em;
-    text-shadow: 0 20px 40px rgba(46, 7, 63, 0.1);
+    letter-spacing: -0.02em;
+    text-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
 }
 
-.text-gradient-purple {
-    background: linear-gradient(to right, #7A1CAC, #AD49E1);
+.text-gradient-royal {
+    background: linear-gradient(to right, #AD49E1, #f59e0b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
 }
 
 .hero-subtitle {
-    color: #64748b;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    color: #94a3b8; /* Slate-400 for better contrast on dark */
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-top: 10px;
 }
 
-/* --- 3D Search Bar Architecture --- */
+/* --- Search Bar Glassmorphism --- */
 .search-3d-wrapper {
     width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.4);
+    max-width: 650px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.02);
     border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 25px 50px -12px rgba(46, 7, 63, 0.15);
-    transform: translateZ(50px);
-    transition: all 0.4s ease;
+    border: 1px solid rgba(134, 10, 243, 0.2); /* Purple Glass Edge */
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .search-3d-wrapper:focus-within {
-    transform: translateZ(80px) translateY(-5px) rotateX(-2deg);
-    box-shadow: 0 40px 70px -15px rgba(122, 28, 172, 0.25);
+    transform: translateY(-5px) scale(1.02);
+    border: 1px solid rgba(245, 158, 11, 0.5); /* Amber focus */
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
 }
 
 .search-glass-inner {
-    background: white;
+    background: rgba(2, 6, 23, 0.7); /* Deep Obsidian */
     border-radius: 100px;
-    padding: 6px 6px 6px 24px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    padding: 6px 6px 6px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .search-input-3d {
     width: 100%;
     border: none;
     outline: none;
-    font-size: 1rem;
-    color: #2E073F;
+    font-size: 1.1rem;
+    color: #f1f5f9;
+    background: transparent;
 }
 
+.search-input-3d::placeholder {
+    color: #475569;
+}
+
+/* --- Royal Search Button --- */
 .search-btn-3d {
-    background: #7A1CAC !important;
+    background: linear-gradient(135deg, #7A1CAC, #f59e0b) !important;
     border-radius: 100px !important;
-    padding: 24px !important;
-    box-shadow: 0 6px 0px #2E073F !important; /* 3D Push effect */
-    transition: all 0.1s ease !important;
+    padding: 26px !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 5px 0px #4e0e6e !important;
+    transition: all 0.2s ease !important;
+}
+
+.search-btn-3d:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 7px 15px rgba(122, 28, 172, 0.4) !important;
 }
 
 .search-btn-3d:active {
-    transform: translateY(4px);
-    box-shadow: 0 0px 0px #2E073F !important;
+    transform: translateY(3px);
+    box-shadow: 0 2px 0px #2E073F !important;
 }
 
-/* --- Mobile Responsiveness --- */
+/* --- Mobile Fixes --- */
 @media (max-width: 768px) {
     .search-3d-wrapper {
-        width: 95%;
-        transform: none !important;
+        width: 100%;
+        backdrop-filter: blur(10px);
     }
-    
-    .hero-main-title {
-        font-size: 2.5rem;
-    }
+    .hero-main-title { font-size: 2.8rem; }
+    .hero-root-container { padding: 80px 15px; }
 }

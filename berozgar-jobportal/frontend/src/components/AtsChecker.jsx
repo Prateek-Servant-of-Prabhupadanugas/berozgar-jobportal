@@ -4,7 +4,6 @@ import { Input } from './ui/input';
 import { Loader2, UploadCloud, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import './AtsChecker.css';
 
-// Using a stable CDN for the PDF worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 const AtsChecker = () => {
@@ -56,19 +55,19 @@ const AtsChecker = () => {
 
     return (
         <div className="ats-main-container">
-            <div className="ats-card-3d">
+            <div className="ats-card-obsidian">
                 <div className="ats-header">
-                    <Sparkles className="text-[#AD49E1] mb-2" />
+                    <Sparkles className="text-[#f59e0b] mx-auto mb-2" />
                     <h2 className="ats-title">ATS Optimizer</h2>
                     <p className="ats-subtitle">Benchmark your resume against MERN standards</p>
                 </div>
                 
                 <div className="ats-upload-section">
-                    <label htmlFor="ats-upload" className="ats-dropzone-3d">
+                    <label htmlFor="ats-upload" className="ats-dropzone-royal">
                         <UploadCloud size={50} className="upload-icon" />
                         <div className="text-center">
-                            <span className="block font-bold text-[#2E073F]">Upload PDF Resume</span>
-                            <span className="text-xs text-[#7A1CAC] opacity-70">No data leaves your browser</span>
+                            <span className="block font-bold text-white">Upload PDF Resume</span>
+                            <span className="text-xs text-[#f59e0b] opacity-70">Privacy first: Analysis happens in-browser</span>
                         </div>
                         <Input id="ats-upload" type="file" accept=".pdf" onChange={handleFileUpload} className="hidden" />
                     </label>
@@ -77,35 +76,37 @@ const AtsChecker = () => {
                 {loading && (
                     <div className="loading-overlay">
                         <Loader2 className="spinner-3d" />
-                        <p className="loading-text">Deep Scanning Resume...</p>
+                        <p className="loading-text text-amber-400">Quantum Scanning Resume...</p>
                     </div>
                 )}
 
                 {analysis && !loading && (
                     <div className="results-wrapper-3d">
                         <div className="score-hero">
-                            <div className="circular-progress" style={{ '--percent': analysis.score }}>
-                                <div className="inner-circle">
-                                    <span className="percentage">{analysis.score}%</span>
+                            <div className="circular-progress-royal" style={{ '--percent': analysis.score }}>
+                                <div className="inner-circle-obsidian">
+                                    <span className="percentage text-white">{analysis.score}%</span>
                                 </div>
                             </div>
-                            <div className="status-badge">
-                                <h3>{analysis.score > 70 ? "Ready to Apply" : "Needs Optimization"}</h3>
-                                <p>ATS Compatibility Match</p>
+                            <div className="status-badge-royal">
+                                <h3 className={analysis.score > 70 ? "text-green-400" : "text-amber-500"}>
+                                    {analysis.score > 70 ? "Ready to Apply" : "Needs Optimization"}
+                                </h3>
+                                <p className="text-slate-400">ATS Compatibility Match</p>
                             </div>
                         </div>
 
                         <div className="analysis-grid">
-                            <div className="analysis-box box-found">
-                                <h4 className="box-title"><CheckCircle2 size={16} /> Skills Found</h4>
+                            <div className="analysis-box-glass box-found">
+                                <h4 className="box-title text-green-400"><CheckCircle2 size={16} /> Skills Found</h4>
                                 <div className="pill-container">
-                                    {analysis.found.map(s => <span key={s} className="ats-pill pill-3d-green">{s}</span>)}
+                                    {analysis.found.map(s => <span key={s} className="ats-pill pill-royal-green">{s}</span>)}
                                 </div>
                             </div>
-                            <div className="analysis-box box-missing">
-                                <h4 className="box-title"><AlertCircle size={16} /> Suggestions</h4>
+                            <div className="analysis-box-glass box-missing">
+                                <h4 className="box-title text-amber-500"><AlertCircle size={16} /> Suggestions</h4>
                                 <div className="pill-container">
-                                    {analysis.missing.map(s => <span key={s} className="ats-pill pill-3d-red">{s}</span>)}
+                                    {analysis.missing.map(s => <span key={s} className="ats-pill pill-royal-amber">{s}</span>)}
                                 </div>
                             </div>
                         </div>
