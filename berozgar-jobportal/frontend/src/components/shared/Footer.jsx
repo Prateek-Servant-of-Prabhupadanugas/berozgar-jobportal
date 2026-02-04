@@ -56,7 +56,7 @@ const Footer = () => {
                             </div>
                             <div className="flex items-center gap-4 contact-item-royal">
                                 <div className="contact-icon-box"><Mail size={16} /></div>
-                                <span className="text-slate-300">hq@berozgaars.com</span>
+                                <span className="text-slate-300"support@berozgaars.com</span>
                             </div>
                             <div className="mt-6 flex items-center gap-2 text-[#f59e0b] font-bold text-sm uppercase tracking-widest">
                                 <Sparkles size={14} />
