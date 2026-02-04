@@ -26,7 +26,7 @@ const HeroSection = () => {
                 <div className='flex flex-col gap-6 my-10'>
                     <div className='badge-3d-container mx-auto'>
                         <span className='badge-3d-text px-6 py-2 rounded-full font-bold uppercase tracking-wider'>
-                            India's First AI Integrated HR Tech Platform
+                            India's First Fully Backed By AI Integration <br />HR Tech Platform
                         </span>
                     </div>
 
