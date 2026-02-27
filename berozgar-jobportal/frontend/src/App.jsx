@@ -15,6 +15,7 @@ import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 import RoyalBackground from './components/RoyalBackground'
+import { Analytics } from '@vercel/analytics/react';
 
 // New Components
 import ServicePage from './components/ServicePage'
@@ -146,6 +147,7 @@ function App() {
     <div>
       <RoyalBackground />
       <RouterProvider router={appRouter} />
+        <Analytics/>
     </div>
   )
 }
