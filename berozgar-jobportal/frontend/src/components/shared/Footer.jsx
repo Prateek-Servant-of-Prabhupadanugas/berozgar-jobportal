@@ -17,10 +17,18 @@ const Footer = () => {
                             Architecting the future of recruitment with a seamless, high-fidelity talent experience.
                         </p>
                         <div className="flex gap-4">
-                            <div className="social-pill-royal"><Facebook size={18} /></div>
-                            <div className="social-pill-royal"><Twitter size={18} /></div>
-                            <div className="social-pill-royal"><Instagram size={18} /></div>
-                            <div className="social-pill-royal"><Linkedin size={18} /></div>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Facebook">
+                                <Facebook size={18} />
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Twitter">
+                                <Twitter size={18} />
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Instagram">
+                                <Instagram size={18} />
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="LinkedIn">
+                                <Linkedin size={18} />
+                            </a>
                         </div>
                     </div>
 

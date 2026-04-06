@@ -34,5 +34,13 @@ const userSchema = new mongoose.Schema({
             default:""
         }
     },
+    isEmailVerified : {
+        type : Boolean,
+        default : false
+    } , 
+    isPhoneVerified : {
+        type : Boolean,
+        default : false
+    }
 },{timestamps:true});
 export const User = mongoose.model('User', userSchema);
