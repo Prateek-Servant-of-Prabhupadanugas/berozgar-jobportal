@@ -17,16 +17,16 @@ const Footer = () => {
                             Architecting the future of recruitment with a seamless, high-fidelity talent experience.
                         </p>
                         <div className="flex gap-4">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Facebook">
+                            <a href="https://www.facebook.com/share/18JRzBChfw/" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Facebook">
                                 <Facebook size={18} />
                             </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Twitter">
+                            <a href="https://x.com/berozgaars01" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Twitter">
                                 <Twitter size={18} />
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Instagram">
+                            <a href="https://www.instagram.com/berozgaars01?igsh=bWdsemV0MWplcnVn" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="Instagram">
                                 <Instagram size={18} />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="LinkedIn">
+                            <a href="https://in.linkedin.com/company/berozgaars-com" target="_blank" rel="noopener noreferrer" className="social-pill-royal" aria-label="LinkedIn">
                                 <Linkedin size={18} />
                             </a>
                         </div>
