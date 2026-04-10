@@ -1,0 +1,102 @@
+/* SharedPages.css */
+.page-main-container {
+    perspective: 1200px;
+    padding: 4rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Adjust based on your header/footer size */
+}
+
+.page-card-obsidian {
+    background: rgba(15, 23, 42, 0.6); /* Deep Obsidian Glass */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 30px;
+    border: 1px solid rgba(134, 10, 243, 0.3); /* Purple Glow Border */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    padding: 3rem;
+    width: 100%;
+    max-width: 800px;
+    transform: rotateX(2deg);
+    transition: all 0.4s ease;
+}
+
+.page-card-obsidian:hover {
+    transform: rotateX(0deg) translateY(-10px);
+    border-color: rgba(245, 158, 11, 0.4); /* Amber glow on hover */
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    color: #f59e0b;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.content-box-glass {
+    padding: 2.5rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #cbd5e1; /* Slate 300 */
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* Form Elements for Contact Page */
+.glass-input, .glass-textarea {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(134, 10, 243, 0.3);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.glass-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.glass-input:focus, .glass-textarea:focus {
+    outline: none;
+    border-color: #f59e0b;
+    background: rgba(15, 23, 42, 0.6);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+.glass-btn {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 0 rgba(245, 158, 11, 0.2);
+}
+
+.glass-btn:hover {
+    background: #f59e0b;
+    color: #0f172a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+}
