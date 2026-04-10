@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 import './Footer.css';
 
@@ -36,10 +37,10 @@ const Footer = () => {
                     <div className="footer-column">
                         <h3 className="column-title-royal">Ecosystem</h3>
                         <ul className="space-y-4">
-                            <li className="footer-link-royal">About Our Mission</li>
-                            <li className="footer-link-royal">Contact Support</li>
-                            <li className="footer-link-royal">Service Directory</li>
-                            <li className="footer-link-royal">Legal Framework</li>
+                            <li><Link to="/about-mission" className="footer-link-royal block">About Our Mission</Link></li>
+                            <li><Link to="/contact" className="footer-link-royal block">Contact Support</Link></li>
+                            <li><Link to="/directory" className="footer-link-royal block">Service Directory</Link></li>
+                            <li><Link to="/terms" className="footer-link-royal block">Legal Framework</Link></li>
                         </ul>
                     </div>
 
@@ -47,10 +48,10 @@ const Footer = () => {
                     <div className="footer-column">
                         <h3 className="column-title-royal">For Pioneers</h3>
                         <ul className="space-y-4">
-                            <li className="footer-link-royal">Explore Opportunities</li>
-                            <li className="footer-link-royal">User Command Center</li>
-                            <li className="footer-link-royal">Priority Alerts</li>
-                            <li className="footer-link-royal">Resume Optimization</li>
+                            <li><Link to="/opportunities" className="footer-link-royal block">Explore Opportunities</Link></li>
+                            <li><Link to="/dashboard" className="footer-link-royal block">User Command Center</Link></li>
+                            <li><Link to="/alerts" className="footer-link-royal block">Priority Alerts</Link></li>
+                            <li><Link to="/resume" className="footer-link-royal block">Resume Optimization</Link></li>
                         </ul>
                     </div>
 
@@ -80,8 +81,8 @@ const Footer = () => {
                         © 2026 Berozgaars. Secured & Encrypted.
                     </p>
                     <div className="flex gap-10 text-xs font-bold uppercase tracking-widest text-slate-500">
-                        <span className="hover:text-[#f59e0b] cursor-pointer transition-all">Privacy Policy</span>
-                        <span className="hover:text-[#f59e0b] cursor-pointer transition-all">Cookies</span>
+                        <Link to="/privacy" className="hover:text-[#f59e0b] cursor-pointer transition-all">Privacy Policy</Link>
+                        <Link to="/cookies" className="hover:text-[#f59e0b] cursor-pointer transition-all">Cookies</Link>
                     </div>
                 </div>
             </div>
