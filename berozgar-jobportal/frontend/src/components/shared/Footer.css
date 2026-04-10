@@ -64,12 +64,18 @@
     cursor: pointer;
     transition: all 0.3s ease;
     width: fit-content;
+    padding-left: 0px; /* Added to ensure smooth animation */
 }
 
 .footer-link-royal:hover {
     color: white;
-    transform: translateX(10px);
+    padding-left: 10px; /* Safely replaces the transform */
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Ensure no active transform is ruining the click */
+.footer-link-royal:active {
+    transform: none !important; 
 }
 
 /* --- Contact Icons --- */
